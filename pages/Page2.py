@@ -1,6 +1,7 @@
 import pandas as pd
 import streamlit as st
 import folium
+from streamlit_folium import st_folium
 
 st.write('**Plattegrond New York**')
 st.markdown('Hierbij de plattegrond van New York met de parameters van de elke AirBNB apartement')
@@ -16,14 +17,12 @@ data = pd.read_csv('clean_df.csv')
                   popup=data.iloc[i]['name']).add_to(mb)"""
 
 #iterrows:
-for index, row in data.iterrows():
-    folium.Marker([row['long'], row['lat']], popup=row['NAME']).add_to(mb)
+"""for index, row in data.iterrows():
+    folium.Marker([row['long'], row['lat']], popup=row['NAME']).add_to(mb)"""
 
 # apply:
-"""data.apply(lambda row: folium.marker([row['lat'], row['lon']],
-                                     popup=row['name']).add_to(mb))"""
-
-st.write(mb)
+data.apply(lambda row: folium.marker([row['long'], row['lat']],
+                                     popup=row['NAME']).add_to(mb))
 
 
 
