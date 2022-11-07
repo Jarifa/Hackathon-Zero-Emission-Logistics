@@ -26,11 +26,13 @@ api.authenticate()
 api.dataset_download_files('arianazmoudeh/airbnbopendata', unzip=True)
 df_original = pd.read_csv('Airbnb_Open_Data.csv')
 
+st.write(df_original.columns)
 
 print('test')
 st.write(df_original)
 
-#  Achtergrond streamlit
+# Achtergrond streamlit
 achtergrond = ''' <style> body { background-image: url("https://images.unsplash.com/photo-1542281286-9e0a16bb7366"); background-size: cover; } </style> '''
 
 
+st.image(achtergrond)
