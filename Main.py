@@ -8,6 +8,9 @@ import os
 
 from kaggle.api.kaggle_api_extended import KaggleApi
 
+# tijdelijk; alleen voor lokaal gebruik:
+# os.environ['KAGGLE_USERNAME'] = "davevanderschouw"
+# os.environ['KAGGLE_KEY'] = "dea650c8a5aa2e60e1af506563daf342"
 api = KaggleApi()
 api.authenticate()
 
@@ -18,3 +21,4 @@ api.dataset_download_files('shivamb/fortune-global-2000-companies-till-2021', un
 df_2021 = pd.read_csv('fortune_2000_in_2021.csv')
 
 print('test')
+st.write(df_2021)
