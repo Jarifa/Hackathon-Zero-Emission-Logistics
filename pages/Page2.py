@@ -1,8 +1,10 @@
 import pandas as pd
 import streamlit as st
 import folium
+from folium import plugins
 from streamlit_folium import st_folium
 from streamlit_folium import folium_static
+
 
 ###################################################################################################################
 def add_bg_from_url():
@@ -39,8 +41,9 @@ st.write('lengte df = ', len(data))
                   popup=data.iloc[i]['name']).add_to(mb)"""
 
 #iterrows:
+marker_cluster = folium.plugins.MarkerCluster(name='Clusters', overlay=False, control=True).add_to(mb)
 for index, row in data.iterrows():
-    folium.Marker(location=[row['lat'], row['long']], popup=row['NAME']).add_to(mb)
+    folium.Marker(location=[row['lat'], row['long']], popup=row['NAME']).add_to(marker_cluster)
 
 
 
