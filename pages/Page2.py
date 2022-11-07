@@ -40,10 +40,9 @@ selection = st.selectbox(
 
 st.write('You selected:', selection)
 
-st.write('unique neighbourhoods: ', unique_neighbourhoods)
-
 neighbourhood = data[data['neighbourhood'] == selection]
 st.write('neighbourhood = ', neighbourhood)
+
 st.write('lengte neighbourhood = ', len(data))
 
 # range:
