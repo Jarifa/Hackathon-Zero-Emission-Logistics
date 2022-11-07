@@ -42,7 +42,7 @@ data = pd.read_csv('clean_df.csv')
 data = data[data['neighbourhood'] == 'Kips Bay']
 
 #itertuples
-folium.Marker([data.long, data.lat], popup=data.NAME).add_to(mb)
+folium.Marker([data.long.values, data.lat.values], popup=data.NAME.values).add_to(mb)
 
 # apply:
 """data.apply(lambda row: folium.marker([row['long'], row['lat']],
