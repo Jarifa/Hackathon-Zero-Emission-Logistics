@@ -14,8 +14,10 @@ df_original = pd.read_csv('Airbnb_Open_Data.csv')
 st.write('Original "Dirty" dataframe:')
 st.write(df_original)
 
-test = df_original['price'][1:].values
-st.write(test)
+df = df_original
+df['price'] = df['price'].str[1:]
+df['service fee'] = df['service fee'].str[1:]
+st.write(df)
 
 """
 st.write("price en service fee als int64")
