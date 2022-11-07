@@ -31,9 +31,9 @@ mb = folium.Map(location=[40.730610, -73.935242], tiles="Openstreetmap")
 
 
 data = pd.read_csv('clean_df.csv')
-#data = data[data['neighbourhood'] == 'Kips Bay']
-#st.write('filtered dataframe = ', data)
-#st.write('lengte df = ', len(data))
+data = data[data['neighbourhood'] == 'Kips Bay']
+st.write('filtered dataframe = ', data)
+st.write('lengte df = ', len(data))
 
 #range:
 """for i in range(0, len(data)):
