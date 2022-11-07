@@ -40,7 +40,7 @@ st.write('lengte df = ', len(data))
 
 #iterrows:
 for index, row in data.iterrows():
-    folium.Marker([row['long'], row['lat']], popup=row['NAME']).add_to(mb)
+    folium.Marker(location=[row['lat'], row['long']], popup=row['NAME']).add_to(mb)
 
 
 
