@@ -7,9 +7,9 @@ st.write('**Plattegrond New York**')
 st.markdown('Hierbij de plattegrond van New York met de parameters van de elke AirBNB apartement')
 
 ################################################################################################################
-mb = folium.Map()
+mb = folium.Map(location=[40.730610, -73.935242], tiles="Openstreetmap")
 st_map = st_folium(mb)
-# location=[40.730610, -73.935242], tiles="Openstreetmap"
+
 data = pd.read_csv('clean_df.csv')
 
 #range:
