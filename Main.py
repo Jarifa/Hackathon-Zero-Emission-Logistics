@@ -10,7 +10,7 @@ import authentication
 from kaggle.api.kaggle_api_extended import KaggleApi
 
 api = KaggleApi()
-authentication.auth_json(api)
+api.authenticate()
 
 #importing datasets from API
 api.dataset_download_files('surajjha101/fortune-top-1000-companies-by-revenue-2022', unzip=True)
