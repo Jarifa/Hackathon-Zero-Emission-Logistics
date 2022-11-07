@@ -6,7 +6,6 @@ import numpy as np
 import json
 import os
 
-import authentication
 from kaggle.api.kaggle_api_extended import KaggleApi
 
 api = KaggleApi()
