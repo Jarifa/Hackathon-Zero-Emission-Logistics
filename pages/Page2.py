@@ -2,6 +2,8 @@ import pandas as pd
 import streamlit as st
 import folium
 from streamlit_folium import st_folium
+from streamlit_folium import folium_static
+
 ###################################################################################################################
 def add_bg_from_url():
     st.markdown(
@@ -38,14 +40,14 @@ data = pd.read_csv('clean_df.csv')
     folium.Marker([row['long'], row['lat']], popup=row['NAME']).add_to(mb)"""
 
 #itertuples
-"""for row_tuple in data.itertuples():
-    folium.Marker([row_tuple.long, row_tuple.lat], popup=row_tuple.NAME).add_to(mb)"""
+for row_tuple in data.itertuples():
+    folium.Marker([row_tuple.long, row_tuple.lat], popup=row_tuple.NAME).add_to(mb)
 
 # apply:
 """data.apply(lambda row: folium.marker([row['long'], row['lat']],
                                      popup=row['NAME']).add_to(mb))"""
 
-st_map = st_folium(mb)
+st_map = folium_static(mb)
 
 
 
