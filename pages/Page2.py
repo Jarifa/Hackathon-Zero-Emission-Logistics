@@ -46,24 +46,23 @@ neighbourhood = data[data['neighbourhood'] == selection]
 st.write('neighbourhood = ', neighbourhood)
 st.write('lengte neighbourhood = ', len(data))
 
-#range:
-"""for i in range(0, len(data)):
-    folium.marker([data.iloc[i]['lat'], data.iloc[i]['lon']],
-                  popup=data.iloc[i]['name']).add_to(mb)"""
+# range:
+# for i in range(0, len(data)):
+#    folium.marker([data.iloc[i]['lat'], data.iloc[i]['lon']],
+#                  popup=data.iloc[i]['name']).add_to(mb)
 
-#iterrows:
+# iterrows:
 marker_cluster = folium.plugins.MarkerCluster(name='Clusters', overlay=False, control=True).add_to(mb)
 for index, row in data.iterrows():
     folium.Marker(location=[row['lat'], row['long']], popup=row['NAME']).add_to(marker_cluster)
 
 
 
-#itertuples
-"""folium.Marker([data.long.values[1], data.lat.values[1]], popup=data.NAME.values[1]).add_to(mb)"""
+# itertuples:
+# folium.Marker([data.long.values[1], data.lat.values[1]], popup=data.NAME.values[1]).add_to(mb)
 
 # apply:
-"""data.apply(lambda row: folium.marker([row['long'], row['lat']],
-                                     popup=row['NAME']).add_to(mb))"""
+# data.apply(lambda row: folium.marker([row['long'], row['lat']], popup=row['NAME']).add_to(mb))
 
 st_map = folium_static(mb)
 
