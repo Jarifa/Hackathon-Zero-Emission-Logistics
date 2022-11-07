@@ -15,9 +15,15 @@ st.write('Original "Dirty" dataframe:')
 st.write(df_original)
 
 df = df_original
+
+# drop NaN locations
+st.write(df[['lat', 'long']].isna().sum())
+df.dropna(subset=['lat', 'long'])
+
+# price and service fee cleanup
 df['price'] = df['price'].str[1:].replace(',', '')
 df['service fee'] = df['service fee'].str[1:].replace(',', '')
-#df = df.astype({"price": "int",
+# df = df.astype({"price": "int",
 #                "service fee": "int"})
 st.write(df)
 
