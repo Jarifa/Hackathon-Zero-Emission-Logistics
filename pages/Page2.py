@@ -29,6 +29,8 @@ mb = folium.Map(location=[40.730610, -73.935242], tiles="Openstreetmap")
 
 
 data = pd.read_csv('clean_df.csv')
+data = data[data['neighbourhood'] == 'Kips Bay']
+st.write('filtered dataframe = ', data)
 
 #range:
 """for i in range(0, len(data)):
@@ -36,13 +38,13 @@ data = pd.read_csv('clean_df.csv')
                   popup=data.iloc[i]['name']).add_to(mb)"""
 
 #iterrows:
-"""for index, row in data.iterrows():
-    folium.Marker([row['long'], row['lat']], popup=row['NAME']).add_to(mb)"""
+for index, row in data.iterrows():
+    folium.Marker([row['long'], row['lat']], popup=row['NAME']).add_to(mb)
 
-data = data[data['neighbourhood'] == 'Kips Bay']
+
 
 #itertuples
-folium.Marker([data.long.values[1], data.lat.values[1]], popup=data.NAME.values[1]).add_to(mb)
+"""folium.Marker([data.long.values[1], data.lat.values[1]], popup=data.NAME.values[1]).add_to(mb)"""
 
 # apply:
 """data.apply(lambda row: folium.marker([row['long'], row['lat']],
