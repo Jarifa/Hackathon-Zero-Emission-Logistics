@@ -17,7 +17,7 @@ data = pd.read_csv('clean_df.csv')
 
 #iterrows:
 for index, row in data.iterrows():
-    folium.Marker([row['lng'], row['lat']], popup=row['NAME']).add_to(mb)
+    folium.Marker([row['long'], row['lat']], popup=row['NAME']).add_to(mb)
 
 # apply:
 """data.apply(lambda row: folium.marker([row['lat'], row['lon']],
