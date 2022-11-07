@@ -10,3 +10,4 @@ missingno~=0.5.1
 Shapely~=1.8.5.post1
 fuzzywuzzy~=0.18.0
 statsmodels~=0.13.5
+folium~=0.13.0

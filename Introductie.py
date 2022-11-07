@@ -15,8 +15,8 @@ st.write('Original "Dirty" dataframe:')
 st.write(df_original)
 
 df = df_original
-df['price'] = df['price'].str[1:].replace(',','')
-df['service fee'] = df['service fee'].str[1:].replace(',','')
+df['price'] = df['price'].str[1:].replace(',', '')
+df['service fee'] = df['service fee'].str[1:].replace(',', '')
 df = df.astype({"price": "int",
                 "service fee": "int"})
 st.write(df)
@@ -28,3 +28,4 @@ st.write(df)
 """
 # Achtergrond streamlit achtergrond = ''' <style> body { background-image: url("https://images.unsplash.com/photo-1542281286-9e0a16bb7366"); background-size: cover; } </style> '''
 
+df.to_csv('clean_df.csv')
