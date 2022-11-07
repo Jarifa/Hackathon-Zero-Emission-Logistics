@@ -14,6 +14,7 @@ import plotly.express as px
 import plotly.figure_factory as ff
 from shapely.geometry import Point
 import missingno as msno
+import statsmodels.api as sm
 from fuzzywuzzy import fuzz
 
 from kaggle.api.kaggle_api_extended import KaggleApi
@@ -48,8 +49,8 @@ elif pages == 'Terrein Kaart':
     st.subheader('Kaarten Bedrijventerreinen')
     st.markdown(
         "In de kaart zijn de energiebehoeftes van Schiphol tradepark en WFO per gebouw weergegeven. Hiermee gaan we een geschatte energievraag analyseren van op basis van voertuigregistraties. Op basis van publieke data en deelse CBS data. Wordt een inschatting gemaakt hoe de energiebehoefte/voorraad op bedrijventerreinen.")
-    #folium_static(mwfo)  # Kaart1
-    #folium_static(mstp)  # Kaart2
+    folium_static(mwfo)  # Kaart1
+    folium_static(mstp)  # Kaart2
 elif pages == 'Verbruik':
     st.subheader('Energie verbruik per dag')
     st.markdown(
