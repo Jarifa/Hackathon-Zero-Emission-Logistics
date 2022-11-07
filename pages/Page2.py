@@ -22,8 +22,8 @@ data = pd.read_csv('clean_df.csv')
     folium.Marker([row['long'], row['lat']], popup=row['NAME']).add_to(mb)"""
 
 #itertuples
-"""for row_tuple in data.itertuples():
-    folium.Marker([row_tuple.long, row_tuple.lat], popup=row_tuple.NAME).add_to(mb)"""
+for row_tuple in data.itertuples():
+    folium.Marker([row_tuple.long, row_tuple.lat], popup=row_tuple.NAME).add_to(mb)
 
 # apply:
 """data.apply(lambda row: folium.marker([row['long'], row['lat']],
