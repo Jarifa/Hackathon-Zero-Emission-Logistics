@@ -17,4 +17,4 @@ df_2022 = pd.read_csv('Fortune 1000 Companies by Revenue.csv')
 api.dataset_download_files('shivamb/fortune-global-2000-companies-till-2021', unzip=True)
 df_2021 = pd.read_csv('fortune_2000_in_2021.csv')
 
-print(test)
+print('test')
