@@ -1,2 +1,4 @@
+import pandas as pd
 import streamlit as st
-st.write('Test page 2')
+test = pd.read_csv('test.csv')
+st.write(test)

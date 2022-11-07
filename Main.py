@@ -26,7 +26,8 @@ api.authenticate()
 api.dataset_download_files('arianazmoudeh/airbnbopendata', unzip=True)
 df_original = pd.read_csv('Airbnb_Open_Data.csv')
 
-st.write(df_original.columns)
+df_test = df_original['NAME']
+df_test.to_csv('test.csv')
 
 print('test')
 st.write(df_original)
