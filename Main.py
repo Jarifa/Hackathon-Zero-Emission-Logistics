@@ -64,5 +64,5 @@ elif pages == 'Verbruik':
 elif pages == 'Ritteninformatie datasets':
     st.subheader("Informatie over ritten")
 
-st.markdown("Voorbeelden van ID's in Allevoertuigen: " + voertuig_ids_string)
-st.markdown("Voorbeelden van ID's in December: " + voertuig_ids_december)
+# st.markdown("Voorbeelden van ID's in Allevoertuigen: " + voertuig_ids_string)
+# st.markdown("Voorbeelden van ID's in December: " + voertuig_ids_december)
