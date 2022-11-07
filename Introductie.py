@@ -15,6 +15,10 @@ st.write('Original "Dirty" dataframe:')
 st.write(df_original)
 st.write(type(df_original['price'][0]))
 
+text = df_original['price'][0]
+st.write(text)
+text2 = text[1:]
+st.write(text2)
 """
 st.write("price en service fee als int64")
 df = df_original.apply(lambda row: row['price'][1:], axis = 1)
