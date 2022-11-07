@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 import streamlit as st
 import folium
@@ -31,7 +32,7 @@ mb = folium.Map(location=[40.730610, -73.935242])
 
 data = pd.read_csv('clean_df.csv')
 unique_neighbourhoods = data['neighbourhood'].unique()
-st.write(type(unique_neighbourhoods))
+np.sort(unique_neighbourhoods)
 
 selection = st.selectbox(
     'Select neighbourhood',
