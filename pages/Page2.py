@@ -2,7 +2,23 @@ import pandas as pd
 import streamlit as st
 import folium
 from streamlit_folium import st_folium
+###################################################################################################################
+def add_bg_from_url():
+    st.markdown(
+         f"""
+         <style>
+         .stApp {{
+             background-image: url("https://th.bing.com/th/id/R.c6d89244cbb1c6d916e87acd4984c09e?rik=5PX6aQALkMW6vg&riu=http%3a%2f%2fimg06.deviantart.net%2fca80%2fi%2f2014%2f196%2fb%2f1%2fminimal_new_york_by_kevichan-d61zr27.jpg&ehk=k9sZxjAJ%2blmBlAiGwtw0kJmHNRzbU4GLxez%2f42eOMo4%3d&risl=&pid=ImgRaw&r=0");
+             background-attachment: fixed;
+             background-size: cover
+         }}
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
 
+add_bg_from_url()
+#######################################################################################################################
 st.write('**Plattegrond New York**')
 st.markdown('Hierbij de plattegrond van New York met de parameters van de elke AirBNB apartement')
 
@@ -28,6 +44,8 @@ for row_tuple in data.itertuples():
 # apply:
 """data.apply(lambda row: folium.marker([row['long'], row['lat']],
                                      popup=row['NAME']).add_to(mb))"""
+
+st_map = st_folium(mb)
 
 
 
