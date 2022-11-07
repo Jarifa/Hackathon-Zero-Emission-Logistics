@@ -31,6 +31,15 @@ mb = folium.Map(location=[40.730610, -73.935242])
 
 data = pd.read_csv('clean_df.csv')
 unique_neighbourhoods = data['neighbourhood'].unique()
+st.write(type(unique_neighbourhoods))
+
+selection = st.selectbox(
+    'Select neighbourhood',
+    unique_neighbourhoods
+    )
+
+st.write('You selected:', selection)
+
 st.write('unique neighbourhoods: ', unique_neighbourhoods)
 
 neighbourhood = data[data['neighbourhood'] == 'Kips Bay']
