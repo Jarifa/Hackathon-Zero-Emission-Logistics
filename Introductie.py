@@ -17,8 +17,9 @@ st.write(df_original)
 df = df_original
 
 # drop NaN locations
-st.write(df[['lat', 'long']].isna().sum())
+st.write('Na values voor drop:', df[['lat', 'long']].isna().sum())
 df.dropna(subset=['lat', 'long'])
+st.write('Na values na drop:', df[['lat', 'long']].isna().sum())
 
 # price and service fee cleanup
 df['price'] = df['price'].str[1:].replace(',', '')
