@@ -52,7 +52,7 @@ st.write('lengte neighbourhood = ', len(data))
 
 # iterrows:
 marker_cluster = folium.plugins.MarkerCluster(name='Clusters', overlay=False, control=True).add_to(mb)
-for index, row in data.iterrows():
+for index, row in neighbourhood.iterrows():
     folium.Marker(location=[row['lat'], row['long']], popup=row['NAME']).add_to(marker_cluster)
 
 
