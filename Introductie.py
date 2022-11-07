@@ -19,7 +19,7 @@ df['price'] = df['price'].str[1:]
 df['service fee'] = df['service fee'].str[1:]
 st.write(df)
 
-"""
+"""a
 st.write("price en service fee als int64")
 df = df_original.apply(lambda row: row['price'][1:], axis = 1)
 st.write(df)
