@@ -27,13 +27,15 @@ st.write('**Plattegrond New York**')
 st.markdown('Hierbij de plattegrond van New York met de parameters van de elke AirBNB apartement')
 
 ################################################################################################################
-mb = folium.Map(location=[40.730610, -73.935242], tiles="Openstreetmap")
-
+mb = folium.Map(location=[40.730610, -73.935242])
 
 data = pd.read_csv('clean_df.csv')
-data = data[data['neighbourhood'] == 'Kips Bay']
-st.write('filtered dataframe = ', data)
-st.write('lengte df = ', len(data))
+unique_neighbourhoods = data['neighbourhood'].unique()
+st.write('unique neighbourhoods: ', unique_neighbourhoods)
+
+neighbourhood = data[data['neighbourhood'] == 'Kips Bay']
+st.write('neighbourhood = ', neighbourhood)
+st.write('lengte neighbourhood = ', len(data))
 
 #range:
 """for i in range(0, len(data)):
