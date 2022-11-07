@@ -17,6 +17,8 @@ st.write(df_original)
 df = df_original
 df['price'] = df['price'].str[1:]
 df['service fee'] = df['service fee'].str[1:]
+df = df.astype({"price": "int",
+                "service fee": "int"})
 st.write(df)
 
 """a
