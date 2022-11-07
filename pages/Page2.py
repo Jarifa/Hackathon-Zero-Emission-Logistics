@@ -31,8 +31,8 @@ st.markdown('Hierbij de plattegrond van New York met de parameters van de elke A
 mb = folium.Map(location=[40.730610, -73.935242])
 
 data = pd.read_csv('clean_df.csv')
-unique_neighbourhoods = data['neighbourhood'].unique()
-np.chararray.sort(unique_neighbourhoods)
+unique_neighbourhoods = np.sort(data['neighbourhood'].unique())
+
 
 selection = st.selectbox(
     'Select neighbourhood',
