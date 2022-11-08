@@ -25,7 +25,7 @@ def add_bg_from_url():
 
 add_bg_from_url()
 #######################################################################################################################
-st.write('**Plattegrond New York**')
+st.title('**Plattegrond New York**')
 st.markdown('Hierbij de plattegrond van New York met de parameters van de elke AirBNB apartement')
 
 ################################################################################################################
