@@ -10,7 +10,7 @@ from streamlit_folium import folium_static
 ###################################################################################################################
 def add_bg_from_url():
     st.markdown(
-         f"""
+        f"""
          <style>
          .stApp {{
              background-image: url("https://th.bing.com/th/id/R.c6d89244cbb1c6d916e87acd4984c09e?rik=5PX6aQALkMW6vg&riu=http%3a%2f%2fimg06.deviantart.net%2fca80%2fi%2f2014%2f196%2fb%2f1%2fminimal_new_york_by_kevichan-d61zr27.jpg&ehk=k9sZxjAJ%2blmBlAiGwtw0kJmHNRzbU4GLxez%2f42eOMo4%3d&risl=&pid=ImgRaw&r=0");
@@ -19,8 +19,9 @@ def add_bg_from_url():
          }}
          </style>
          """,
-         unsafe_allow_html=True
-     )
+        unsafe_allow_html=True
+    )
+
 
 add_bg_from_url()
 #######################################################################################################################
@@ -37,7 +38,7 @@ unique_neighbourhoods = data['neighbourhood'].unique()
 selection = st.selectbox(
     'Selecteer buurt',
     unique_neighbourhoods
-    )
+)
 
 st.write('Selectie:', selection)
 
@@ -56,8 +57,6 @@ marker_cluster = folium.plugins.MarkerCluster(name='Clusters', overlay=False, co
 for index, row in neighbourhood.iterrows():
     folium.Marker(location=[row['lat'], row['long']], popup=row['NAME']).add_to(marker_cluster)
 
-
-
 # itertuples:
 # folium.Marker([data.long.values[1], data.lat.values[1]], popup=data.NAME.values[1]).add_to(mb)
 
@@ -65,7 +64,4 @@ for index, row in neighbourhood.iterrows():
 # data.apply(lambda row: folium.marker([row['long'], row['lat']], popup=row['NAME']).add_to(mb))
 
 st_map = folium_static(mb)
-
-
-
-
+# merge
