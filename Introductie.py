@@ -15,10 +15,8 @@ st.write('Original "Dirty" dataframe:')
 st.write(df_original)
 df = df_original
 
-# drop NaN locations
-st.write('Na values voor drop:', df[['lat', 'long']].isna().sum())
+# drop NaN locations en prices
 df.dropna(subset=['lat', 'long', 'price', 'service fee'], inplace=True)
-st.write('Na values na drop:', df[['lat', 'long']].isna().sum())
 
 # price and service fee cleanup
 df['price'] = df['price'].astype(str).str[1:]
@@ -30,11 +28,6 @@ df = df.astype({"price": "int", "service fee": "int"})
 
 st.write(df)
 
-"""a
-st.write("price en service fee als int64")
-df = df_original.apply(lambda row: row['price'][1:], axis = 1)
-st.write(df)
-"""
 
 
 # Achtergrond############################################################################################
