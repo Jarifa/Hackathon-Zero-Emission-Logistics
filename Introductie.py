@@ -25,19 +25,14 @@ st.write('Na values na drop:', df[['lat', 'long']].isna().sum())
 # price and service fee cleanup
 df['price'] = df['price'].astype(str).str[1:]
 df['service fee'] = df['service fee'].astype(str).str[1:]
-# df['price'] = df['price'].apply(lambda row: row.replace(',', ''))
-# df['service fee'] = df['service fee'].apply(lambda row: row.replace(',', ''))
+df['price'] = df['price'].apply(lambda row: row.replace(',', ''))
+df['service fee'] = df['service fee'].apply(lambda row: row.replace(',', ''))
 
 st.write("aantal datatypes in df['price'] na astype(str): ", df["price"].apply(type).value_counts())
 
-# value = df['price'][19]
-# st.write('test value = ', value)
-# value = value.replace(',', '')
-# st.write('test value after replace = ', value)
+df = df.astype({"price": "int",
+                "service fee": "int"})
 
-# df = df.astype({"price": "int",
-#                "service fee": "int"})
-# ValueError: invalid literal for int() with base 10: '1,060 '
 st.write(df)
 
 """a
