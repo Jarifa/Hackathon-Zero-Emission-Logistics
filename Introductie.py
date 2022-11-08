@@ -15,8 +15,6 @@ st.write('Original "Dirty" dataframe:')
 st.write(df_original)
 df = df_original
 
-st.write("aantal datatypes in df['price']: ", df["price"].apply(type).value_counts())
-
 # drop NaN locations
 st.write('Na values voor drop:', df[['lat', 'long']].isna().sum())
 df.dropna(subset=['lat', 'long'], inplace=True)
@@ -28,7 +26,7 @@ df['service fee'] = df['service fee'].astype(str).str[1:]
 df['price'] = df['price'].apply(lambda row: row.replace(',', ''))
 df['service fee'] = df['service fee'].apply(lambda row: row.replace(',', ''))
 
-st.write("aantal datatypes in df['price'] na astype(str): ", df["price"].apply(type).value_counts())
+st.write('waarden in price: ', df['price'].value_counts())
 
 df = df.astype({"price": "int",
                 "service fee": "int"})
