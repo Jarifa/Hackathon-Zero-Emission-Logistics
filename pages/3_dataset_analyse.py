@@ -33,7 +33,6 @@ fig1 = px.line(df, x="construction year", y="price", color="neighbourhood group"
 
 st.pyplot(fig1)
 
-
 ####Correlation service fee
 
 
