@@ -29,6 +29,8 @@ df['service fee'] = df['service fee'].replace(',', '')
 
 value = df['price'][19]
 st.write('test value = ', value)
+value = value.replace(',', '')
+st.write('test value after replace = ', value)
 
 # df = df.astype({"price": "int",
 #                "service fee": "int"})
