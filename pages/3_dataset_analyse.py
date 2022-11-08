@@ -30,8 +30,9 @@ data = pd.read_csv('clean_df.csv')
 st.write(list(data))
 fig1 = px.line(data, x="Construction year", y="price", color="neighbourhood group",
                title='Prijs per neighbourhood group in relatie tot bouwjaar')
-# AttributeError: module 'plotly' has no attribute 'line'
-st.pyplot(fig1)
+# AttributeError: 'Figure' object has no attribute 'savefig'
+st.head("**Enkele dataset analyses**")
+st.pyplot(fig=fig1)
 
 ####Correlation service fee
 
