@@ -31,7 +31,7 @@ st.write(list(data))
 fig1 = px.line(data, x="Construction year", y="price", color="neighbourhood group",
                title='Prijs per neighbourhood group in relatie tot bouwjaar')
 # AttributeError: 'Figure' object has no attribute 'savefig'
-st.head("**Enkele dataset analyses**")
+st.header("**Enkele dataset analyses**")
 st.pyplot(fig=fig1)
 
 ####Correlation service fee
