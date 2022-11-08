@@ -21,6 +21,8 @@ df.dropna(subset=['lat', 'long'], inplace=True)
 st.write('Na values na drop:', df[['lat', 'long']].isna().sum())
 
 # price and service fee cleanup
+st.write('waarden in price: ', df['price'].value_counts())
+
 df['price'] = df['price'].astype(str).str[1:]
 df['service fee'] = df['service fee'].astype(str).str[1:]
 df['price'] = df['price'].apply(lambda row: row.replace(',', ''))
