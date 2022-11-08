@@ -13,8 +13,9 @@ df_original = pd.read_csv('Airbnb_Open_Data.csv', dtype={'price': str, 'service 
 
 st.write('Original "Dirty" dataframe:')
 st.write(df_original)
-
 df = df_original
+
+st.write("aantal datatypes in df['price']: ", df["price"].apply(type).value_counts())
 
 # drop NaN locations
 st.write('Na values voor drop:', df[['lat', 'long']].isna().sum())
