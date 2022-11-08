@@ -27,6 +27,9 @@ df['service fee'] = df['service fee'].str[1:]
 df['price'] = df['price'].replace(',', '')
 df['service fee'] = df['service fee'].replace(',', '')
 
+value = df['price'][19]
+st.write('test value = ', value)
+
 # df = df.astype({"price": "int",
 #                "service fee": "int"})
 # ValueError: invalid literal for int() with base 10: '1,060 '
