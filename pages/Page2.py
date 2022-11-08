@@ -31,7 +31,13 @@ st.markdown('Hierbij de plattegrond van New York met de parameters van de elke A
 mb = folium.Map(location=[40.730610, -73.935242])
 
 data = pd.read_csv('clean_df.csv')
-unique_neighbourhoods = np.sort(data['neighbourhood'].unique())
+
+## geeft error op np.sort: TypeError: '<' not supported between instances of 'str' and 'float'
+## unique_neighbourhoods = np.sort(data['neighbourhood'].unique())
+## test:
+unique_neighbourhoods = data['neighbourhood'].unique()
+st.write(unique_neighbourhoods.dtype)
+
 
 
 selection = st.selectbox(
