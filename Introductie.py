@@ -17,10 +17,8 @@ df = df_original
 
 # drop NaN locations
 st.write('Na values voor drop:', df[['lat', 'long']].isna().sum())
-df.dropna(subset=['lat', 'long'], inplace=True)
+df.dropna(subset=['lat', 'long', 'price', 'service fee'], inplace=True)
 st.write('Na values na drop:', df[['lat', 'long']].isna().sum())
-
-st.write('amount of isna values in price: ', ['price'].isna().sum())
 
 # price and service fee cleanup
 df['price'] = df['price'].astype(str).str[1:]
