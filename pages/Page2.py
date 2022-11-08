@@ -35,16 +35,16 @@ data = pd.read_csv('clean_df.csv')
 unique_neighbourhoods = data['neighbourhood'].unique()
 
 selection = st.selectbox(
-    'Select neighbourhood',
+    'Selecteer buurt',
     unique_neighbourhoods
     )
 
-st.write('You selected:', selection)
+st.write('Selectie:', selection)
 
 neighbourhood = data[data['neighbourhood'] == selection]
-st.write('neighbourhood = ', neighbourhood)
+st.write('buurt = ', neighbourhood)
 
-st.write('lengte neighbourhood = ', len(data))
+st.write('aantal aanbiedingen in buurt = ', len(data))
 
 # range:
 # for i in range(0, len(data)):
