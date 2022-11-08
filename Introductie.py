@@ -24,8 +24,8 @@ st.write('Na values na drop:', df[['lat', 'long']].isna().sum())
 # price and service fee cleanup
 df['price'] = df['price'].str[1:].replace(',', '')
 df['service fee'] = df['service fee'].str[1:].replace(',', '')
-# df = df.astype({"price": "int",
-#                "service fee": "int"})
+df = df.astype({"price": "int",
+                "service fee": "int"})
 st.write(df)
 
 """a
