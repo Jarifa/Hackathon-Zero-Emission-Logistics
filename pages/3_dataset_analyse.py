@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 import plotly as px
 import streamlit as st
-
+import plotly.express as px
 
 ##########Code voor regression
 ###################################################################################################################
@@ -26,9 +26,9 @@ def add_bg_from_url():
 add_bg_from_url()
 #######################################################################################################################
 ##Price tegenover bouwjaar
-df = pd.read_csv('clean_df.csv')
-st.write(list(df))
-fig1 = px.line(df, x="construction year", y="price", color="neighbourhood group",
+data = pd.read_csv('clean_df.csv')
+st.write(list(data))
+fig1 = px.line(data, x="construction year", y="price", color="neighbourhood group",
                title='Prijs per neighbourhood group in relatie tot bouwjaar')
 
 st.pyplot(fig1)
@@ -36,4 +36,4 @@ st.pyplot(fig1)
 ####Correlation service fee
 
 
-data = df.to_csv('clean_df.csv')
+##data = df.to_csv('clean_df.csv')
