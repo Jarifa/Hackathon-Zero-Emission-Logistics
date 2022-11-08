@@ -28,8 +28,7 @@ df['service fee'] = df['service fee'].apply(lambda row: row.replace(',', ''))
 
 st.write('waarden in price: ', df['price'].value_counts())
 
-df = df.astype({"price": "int",
-                "service fee": "int"})
+df = df.astype({"price": "int", "service fee": "int"})
 
 st.write(df)
 
