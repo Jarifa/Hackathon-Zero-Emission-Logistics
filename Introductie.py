@@ -24,8 +24,8 @@ st.write('Na values na drop:', df[['lat', 'long']].isna().sum())
 # price and service fee cleanup
 df['price'] = df['price'].str[1:]
 df['service fee'] = df['service fee'].str[1:]
-df['price'] = df['price'].apply(lambda row: row.replace(',', ''), axis=1)
-df['service fee'] = df['service fee'].apply(lambda row: row.replace(',', ''), axis=1)
+df['price'] = df['price'].apply(lambda row: row.replace(',', ''))
+df['service fee'] = df['service fee'].apply(lambda row: row.replace(',', ''))
 
 # value = df['price'][19]
 # st.write('test value = ', value)
