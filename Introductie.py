@@ -32,8 +32,6 @@ df = df.astype({"price": "int", "service fee": "int"})
 df['serv_fee_perc'] = df['service fee'].values / (df['price'].values + df['service fee'].values)
 st.write(df)
 
-st.write('average per room type: ',
-         df['room type', 'price', 'service fee', 'serv_fee_perc'].groupby('room type').mean())
 
 
 # Achtergrond############################################################################################
