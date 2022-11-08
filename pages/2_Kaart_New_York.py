@@ -40,12 +40,10 @@ selection = st.selectbox(
     unique_neighbourhoods
 )
 
-st.write('Selectie:', selection)
-
 neighbourhood = data[data['neighbourhood'] == selection]
 st.write('dataframe van de buurt:', neighbourhood)
 
-st.write('aantal aanbiedingen in buurt = ', len(data))
+st.write('aantal aanbiedingen in buurt = ', len(neighbourhood))
 
 # range:
 # for i in range(0, len(data)):
@@ -53,6 +51,7 @@ st.write('aantal aanbiedingen in buurt = ', len(data))
 #                  popup=data.iloc[i]['name']).add_to(mb)
 
 # iterrows:
+st.write('Kaart met aanbiedingen in de buurt')
 marker_cluster = folium.plugins.MarkerCluster(name='Clusters', overlay=False, control=True).add_to(mb)
 for index, row in neighbourhood.iterrows():
     folium.Marker(location=[row['lat'], row['long']], popup=row['NAME']).add_to(marker_cluster)
