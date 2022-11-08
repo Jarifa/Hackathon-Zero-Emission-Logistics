@@ -28,7 +28,10 @@ add_bg_from_url()
 ##Price tegenover bouwjaar
 df = pd.read_csv('clean_df.csv')
 st.write(list(df))
-# fig = px.line(df, x="year", y="lifeExp", title='Life expectancy in Canada')
+fig1 = px.line(df, x="construction year", y="price", color="neighbourhood group",
+               title='Prijs per neighbourhood group in relatie tot bouwjaar')
+
+st.pyplot(fig1)
 
 
 ####Correlation service fee
