@@ -28,7 +28,7 @@ add_bg_from_url()
 ##Price tegenover bouwjaar
 data = pd.read_csv('clean_df.csv')
 st.write(list(data))
-fig1 = px.line(data, x="construction year", y="price", color="neighbourhood group",
+fig1 = px.line(data, x="Construction year", y="price", color="neighbourhood group",
                title='Prijs per neighbourhood group in relatie tot bouwjaar')
 # AttributeError: module 'plotly' has no attribute 'line'
 st.pyplot(fig1)
