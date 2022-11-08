@@ -27,7 +27,7 @@ add_bg_from_url()
 #######################################################################################################################
 ##Price tegenover bouwjaar
 df = pd.read_csv('clean_df.csv')
-st.write(df.columns)
+st.write(list(df))
 # fig = px.line(df, x="year", y="lifeExp", title='Life expectancy in Canada')
 
 
