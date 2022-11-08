@@ -15,6 +15,8 @@ st.write('Original "Dirty" dataframe:')
 st.write(df_original)
 df = df_original
 
+st.write('names of columns in df: ', list(df))
+
 # drop NaN locations en prices
 df.dropna(subset=['lat', 'long', 'price', 'service fee'], inplace=True)
 
