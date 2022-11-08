@@ -22,8 +22,11 @@ df.dropna(subset=['lat', 'long'], inplace=True)
 st.write('Na values na drop:', df[['lat', 'long']].isna().sum())
 
 # price and service fee cleanup
-df['price'] = df['price'].str[1:].replace(',', '')
-df['service fee'] = df['service fee'].str[1:].replace(',', '')
+df['price'] = df['price'].str[1:]
+df['service fee'] = df['service fee'].str[1:]
+df['price'] = df['price'].replace(',', '')
+df['service fee'] = df['service fee'].replace(',', '')
+
 # df = df.astype({"price": "int",
 #                "service fee": "int"})
 # ValueError: invalid literal for int() with base 10: '1,060 '
