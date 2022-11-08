@@ -24,8 +24,9 @@ st.write('Na values na drop:', df[['lat', 'long']].isna().sum())
 # price and service fee cleanup
 df['price'] = df['price'].str[1:].replace(',', '')
 df['service fee'] = df['service fee'].str[1:].replace(',', '')
-df = df.astype({"price": "int",
-                "service fee": "int"})
+# df = df.astype({"price": "int",
+#                "service fee": "int"})
+# ValueError: invalid literal for int() with base 10: '1,060 '
 st.write(df)
 
 """a
@@ -33,7 +34,9 @@ st.write("price en service fee als int64")
 df = df_original.apply(lambda row: row['price'][1:], axis = 1)
 st.write(df)
 """
-#Achtergrond############################################################################################
+
+
+# Achtergrond############################################################################################
 def add_bg_from_url():
     st.markdown(
          f"""
