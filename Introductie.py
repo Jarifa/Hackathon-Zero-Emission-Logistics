@@ -9,7 +9,7 @@ api.authenticate()
 
 # importing datasets from API
 api.dataset_download_files('arianazmoudeh/airbnbopendata', unzip=True)
-df_original = pd.read_csv('Airbnb_Open_Data.csv')
+df_original = pd.read_csv('Airbnb_Open_Data.csv', dtype={'price': str, 'service fee': str})
 
 st.write('Original "Dirty" dataframe:')
 st.write(df_original)
