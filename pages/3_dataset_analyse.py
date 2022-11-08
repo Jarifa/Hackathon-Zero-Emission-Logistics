@@ -33,7 +33,7 @@ fig1 = px.line(data, x="Construction year", y="price", color="neighbourhood grou
 # AttributeError: 'Figure' object has no attribute 'savefig'
 # st.header("**Enkele dataset analyses**")
 # st.markdown("")
-st.line_chart(fig1)
+st.plotly_chart(fig1)
 
 ####Correlation service fee
 
