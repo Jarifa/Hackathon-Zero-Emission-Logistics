@@ -9,7 +9,7 @@ api.authenticate()
 
 # importing datasets from API
 api.dataset_download_files('arianazmoudeh/airbnbopendata', unzip=True)
-df_original = pd.read_csv('Airbnb_Open_Data.csv', dtype={'price': str, 'service fee': str})
+df_original = pd.read_csv('Airbnb_Open_Data.csv')
 
 st.write('Original "Dirty" dataframe:')
 st.write(df_original)
@@ -23,10 +23,12 @@ df.dropna(subset=['lat', 'long'], inplace=True)
 st.write('Na values na drop:', df[['lat', 'long']].isna().sum())
 
 # price and service fee cleanup
-df['price'] = df['price'].str[1:]
-df['service fee'] = df['service fee'].str[1:]
-df['price'] = df['price'].apply(lambda row: row.replace(',', ''))
-df['service fee'] = df['service fee'].apply(lambda row: row.replace(',', ''))
+df['price'] = df['price'].astype(str).str[1:]
+df['service fee'] = df['service fee'].astype(str).str[1:]
+# df['price'] = df['price'].apply(lambda row: row.replace(',', ''))
+# df['service fee'] = df['service fee'].apply(lambda row: row.replace(',', ''))
+
+st.write("aantal datatypes in df['price'] na astype(str): ", df["price"].apply(type).value_counts())
 
 # value = df['price'][19]
 # st.write('test value = ', value)
