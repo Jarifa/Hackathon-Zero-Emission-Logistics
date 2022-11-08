@@ -26,8 +26,9 @@ df['service fee'] = df['service fee'].apply(lambda row: row.replace(',', ''))
 
 df = df.astype({"price": "int", "service fee": "int"})
 
+# nieuwe kolom met service fee percentage = service fee / price + service fee
+df['serv_fee_perc'] = df['service fee'].values / (df['price'].values + df['service fee'].values)
 st.write(df)
-
 
 
 # Achtergrond############################################################################################
