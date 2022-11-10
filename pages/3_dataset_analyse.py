@@ -7,8 +7,7 @@ import streamlit as st
 import plotly.express as px
 import seaborn as sns
 
-
-#comment
+# comment
 ##########Code voor regression
 ###################################################################################################################
 def add_bg_from_url():

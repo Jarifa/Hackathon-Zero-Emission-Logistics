@@ -12,3 +12,4 @@ fuzzywuzzy~=0.18.0
 statsmodels~=0.13.5
 folium~=0.13.0
 streamlit_folium==0.7.0
+matplotlib~=3.6.2
