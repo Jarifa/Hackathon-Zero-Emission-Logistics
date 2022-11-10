@@ -81,7 +81,6 @@ st.plotly_chart(Figscatter2)
 ####Correlation distance tot "centrum" (The Battery als centre point)
 regressie = px.scatter(data, x="dist",
                        y="price",
-                       color='neighbourhood group',
                        title='Regression distance to centrum/prijs',
                        trendline='ols')
 a = px.get_trendline_results(regressie).px_fit_results.iloc[0].rsquared
