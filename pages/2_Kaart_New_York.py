@@ -41,7 +41,6 @@ selection = st.selectbox(
 )
 
 neighbourhood = data[data['neighbourhood'] == selection]
-st.write('dataframe van de buurt:', neighbourhood)
 
 st.write('aantal aanbiedingen in buurt = ', len(neighbourhood))
 
