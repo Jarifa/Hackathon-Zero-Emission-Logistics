@@ -45,7 +45,7 @@ st.plotly_chart(Boxplot)
 # Histogram van gemiddelde prijs per neighbourhood group (beter leesbaar)
 avg_df = data[['neighbourhood group', 'price']].groupby('neighbourhood group').mean().reset_index()
 st.write(avg_df)
-fig1 = px.histogram(avg_df, x='neighbourhood group', y="price", color=avg_df.index,
+fig1 = px.histogram(avg_df, x='neighbourhood group', y="price", color='neighbourhood group',
                     title='Prijs per neighbourhood group',
                     histfunc='avg',
                     range_y=[600, 650])
