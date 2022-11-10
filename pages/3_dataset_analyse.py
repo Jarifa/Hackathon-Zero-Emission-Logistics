@@ -113,7 +113,7 @@ line_coeff = results.iloc[0]["px_fit_results"].params
 st.write('lijn: ', line_coeff[1], 'x + ', line_coeff[0])
 #
 
-
+st.header('Correlation matrix van de verschillende numerieke kolommen, Positief gecorreleerd:')
 ##Heatmap
 fig, ax = plt.subplots()
 sns.heatmap(data[['host_identity_verified', 'neighbourhood group', 'neighbourhood', 'instant_bookable',
@@ -122,6 +122,7 @@ sns.heatmap(data[['host_identity_verified', 'neighbourhood group', 'neighbourhoo
                   "availability 365"]].corr(), ax=ax, vmin=0, vmax=1, cmap='Blues')
 st.write(fig)
 
+st.subheader('Negatief gecorreleerd:')
 fig, ax = plt.subplots()
 sns.heatmap(data[['host_identity_verified', 'neighbourhood group', 'neighbourhood', 'instant_bookable',
                   "cancellation_policy", "room type", "Construction year", "price", "minimum nights",
