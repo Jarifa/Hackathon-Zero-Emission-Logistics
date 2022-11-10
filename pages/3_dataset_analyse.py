@@ -98,7 +98,7 @@ st.write('R squared: ', a)
 # st.plotly_chart(regressie)
 regressie = px.scatter(data, x="Construction year",
                        y="price",
-                       title='Regression',
+                       title='Regression bouwjaar en prijs',
                        trendline='ols',
                        opacity=0.05,
                        trendline_color_override='red'
