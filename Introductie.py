@@ -63,19 +63,17 @@ df['neighbourhood group'] = df['neighbourhood group'].replace('brookln', 'Brookl
 # geopandas dataframe maken
 gdf = geopandas.GeoDataFrame(
     df, geometry=geopandas.points_from_xy(df.long, df.lat))
-#st.write('geodataframe test: ', gdf)
+# st.write('geodataframe test: ', gdf)
 
 Battery = Point(-74.01540840380054, 40.7032047224727)
-#st.write('Battery point test: ', Battery)
+# st.write('Battery point test: ', Battery)
 
 gdf['dist'] = gdf.distance(Battery)
 
-st.write('Clean dataframe met dist vanaf Battery (centrum new york): ', gdf.head(20))
-
+st.write('Clean dataframe met dist vanaf Battery (centrum new york): ')
+st.write(gdf.head(5))
 
 # Achtergrond############################################################################################
 
 ###############################################################################################################
 gdf.to_csv('clean_df.csv')
-
-
