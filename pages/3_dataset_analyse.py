@@ -48,7 +48,7 @@ st.markdown(
     " Dit heeft ermee te maken dat er verschillende service fees zijn.")
 st.plotly_chart(Figscatter)
 
-Boxplot = px.box(data_frame=data, y='price')
+Boxplot = px.box(data_frame=data, x='neighbourhood group', y='price')
 st.markdown('**Barplot**')
 st.plotly_chart(Boxplot)
 ####Correlation service fee
