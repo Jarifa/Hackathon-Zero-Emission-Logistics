@@ -31,6 +31,9 @@ df = df.astype({"price": "int", "service fee": "int"})
 # nieuwe kolom met service fee percentage = service fee / price + service fee
 df['serv_fee_perc'] = df['service fee'].values / (df['price'].values + df['service fee'].values)
 
+# brookln groep veranderen naar Brooklyn
+df['neighbourhood group'] = df['neighbourhood group'].replace('brookln', 'Brooklyn')
+
 st.write('"Clean" dataframe: ', df)
 
 
