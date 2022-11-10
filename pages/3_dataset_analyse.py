@@ -28,7 +28,7 @@ add_bg_from_url()
 ##Price tegenover bouwjaar
 data = pd.read_csv('clean_df.csv')
 st.write(list(data))
-avg_df = data[['neighbourhood group', 'price']].groupby('neighbourhood group').mean()
+avg_df = data[['neighbourhood group', 'price']].groupby('neighbourhood group').mean().reset_index()
 st.write(avg_df)
 # data['avg_price'] = data['price'].groupby('price').mean()
 fig1 = px.histogram(avg_df, x=avg_df.index, y="price", color=avg_df.index,
