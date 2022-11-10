@@ -93,14 +93,14 @@ gdf['dist'] = gdf.distance(Battery)
 
 # code voor geopandas dataframe met dist
 st.code("""
-geopandas dataframe maken
+# maken van geopandas dataframe, maakt automatisch geometry kolom aan met punten
 gdf = geopandas.GeoDataFrame(
     df, geometry=geopandas.points_from_xy(df.long, df.lat))
-# st.write('geodataframe test: ', gdf)
 
+# Punt aanmaken die Battery aangeeft (locatie in centrum new york)
 Battery = Point(-74.01540840380054, 40.7032047224727)
-# st.write('Battery point test: ', Battery)
 
+# afstand berekenen tot punt voor elke row in dataframe en in nieuwe kolom 'dist' plaatsen
 gdf['dist'] = gdf.distance(Battery)""", language='python')
 
 st.write('Clean dataframe met dist vanaf Battery (centrum new york): ')
