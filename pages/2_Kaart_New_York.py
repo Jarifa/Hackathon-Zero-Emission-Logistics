@@ -29,7 +29,7 @@ st.title('**Plattegrond New York**')
 st.markdown('Hierbij de plattegrond van New York met de parameters van de elke AirBNB apartement')
 
 ################################################################################################################
-mb = folium.Map(location=[40.730610, -73.935242], width=1000)
+mb = folium.Map(location=[40.730610, -73.935242])
 
 data = pd.read_csv('clean_df.csv')
 
@@ -62,4 +62,4 @@ for index, row in neighbourhood.iterrows():
 # apply:
 # data.apply(lambda row: folium.marker([row['long'], row['lat']], popup=row['NAME']).add_to(mb))
 
-st_map = folium_static(mb)
+st_map = folium_static(mb, width='100%')
