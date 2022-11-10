@@ -29,7 +29,7 @@ api.authenticate()
 
 ###Introtekst
 st.header("DASHBOARD Dave van der Schouw, Benjamin Niemann")
-st.markdown("Wellkom bij het dashboard over AirBnB data van NewYork.")
+st.markdown("Welkom bij het dashboard over AirBnB data van NewYork.")
 st.image('Kaggle.png')
 
 # importing datasets from API
