@@ -64,3 +64,31 @@ gdf['dist'] = gdf.distance(Battery)""", language='python')
 st.header('De opgeschoonde en verbeterde dataframe:')
 st.write('Clean dataframe met dist vanaf Battery (centrum new york): ')
 st.write(data[['NAME', 'neighbourhood group', 'price', 'lat', 'long', 'geometry', 'dist']].head(20))
+
+st.header('De kaart van New York')
+st.code("""
+# map aanmaken in folium
+mb = folium.Map(location=[40.730610, -73.935242])
+
+# lijst met unieke neighbourhoods maken
+unique_neighbourhoods = data['neighbourhood'].unique()
+
+#selection box met unieke neighbourhoods
+selection = st.selectbox(
+    'Selecteer buurt',
+    unique_neighbourhoods
+)
+
+# deze geselecteerde neighbourhood opslaan als nieuwe dataframe
+neighbourhood = data[data['neighbourhood'] == selection]
+
+# met deze nieuwe neighbourhood dataframe markers aanmaken voor op de folium map
+st.write('Kaart met aanbiedingen in de buurt')
+marker_cluster = folium.plugins.MarkerCluster(name='Clusters', overlay=False, control=True).add_to(mb)
+for index, row in neighbourhood.iterrows():
+    folium.Marker(location=[row['lat'], row['long']], popup=('Description: ' + str(row['NAME'])),
+                  tooltip=('price: ' + str(row['price']))).add_to(marker_cluster)
+
+# folium in streamlit laden
+st_map = folium_static(mb, width=1100, height=800)
+""", language='python')
