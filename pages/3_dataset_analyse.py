@@ -31,7 +31,7 @@ st.write(list(data))
 avg_df = data[['neighbourhood', 'price']].groupby('neighbourhood').mean()
 st.write(avg_df)
 # data['avg_price'] = data['price'].groupby('price').mean()
-fig1 = px.line(data, x="Construction year", y="avg_price", color="neighbourhood group",
+fig1 = px.line(avg_df, x=avg_df.index, y="price", c=avg_df.index,
                title='Prijs per neighbourhood group in relatie tot bouwjaar')
 # AttributeError: 'Figure' object has no attribute 'savefig'
 # st.header("**Enkele dataset analyses**")
