@@ -13,11 +13,11 @@ api.authenticate()
 api.dataset_download_files('arianazmoudeh/airbnbopendata', unzip=True)
 df_original = pd.read_csv('Airbnb_Open_Data.csv')
 
-st.write('Original "Dirty" dataframe:')
-st.write(df_original)
+st.write('Original "Dirty" dataframe:', df_original)
+# st.write(df_original)
 df = df_original
 
-st.write('names of columns in df: ', list(df))
+# st.write('names of columns in df: ', list(df))
 
 # drop NaN locations en prices
 df.dropna(subset=['lat', 'long', 'price', 'service fee'], inplace=True)
@@ -36,18 +36,20 @@ df['serv_fee_perc'] = df['service fee'].values / (df['price'].values + df['servi
 # brookln groep veranderen naar Brooklyn
 df['neighbourhood group'] = df['neighbourhood group'].replace('brookln', 'Brooklyn')
 
-st.write('"Clean" dataframe: ', df)
+#st.write('"Clean" dataframe: ', df)
 
 # geopandas dataframe maken
 gdf = geopandas.GeoDataFrame(
     df, geometry=geopandas.points_from_xy(df.long, df.lat))
-st.write('geodataframe test: ', gdf)
+#st.write('geodataframe test: ', gdf)
 
 Battery = Point(-74.01540840380054, 40.7032047224727)
-st.write('Battery point test: ', Battery)
+#st.write('Battery point test: ', Battery)
 
 gdf['dist'] = gdf.distance(Battery)
-st.write('dist test: ', gdf)
+
+
+#st.write('dist test: ', gdf)
 
 
 # Achtergrond############################################################################################
@@ -66,3 +68,13 @@ add_bg_from_url()
 ###############################################################################################################
 gdf.to_csv('clean_df.csv')
 # gdf.to_csv('clean_gdf.csv')
+
+
+###Introtekst
+St.header(**DASHBOARD
+Dave
+van
+der
+Schouw, Benjamin
+Niemann **)
+st.markdown()
