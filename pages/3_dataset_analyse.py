@@ -31,28 +31,15 @@ add_bg_from_url()
 
 #######################################################################################################################
 
+st.header("Dataset analyze")
 
 # Price tegenover bouwjaar
 data = pd.read_csv('clean_df.csv')
 
-##Corr
-fig, ax = plt.subplots()
-sns.heatmap(data[['host_identity_verified', 'neighbourhood group', 'neighbourhood', 'instant_bookable',
-                  "cancellation_policy", "room type", "Construction year", "price", "minimum nights",
-                  "number of reviews", "review rate number", "calculated host listings count",
-                  "availability 365"]].corr(), ax=ax, vmin=0, vmax=1, cmap='Blues')
-st.write(fig)
-
-fig, ax = plt.subplots()
-sns.heatmap(data[['host_identity_verified', 'neighbourhood group', 'neighbourhood', 'instant_bookable',
-                  "cancellation_policy", "room type", "Construction year", "price", "minimum nights",
-                  "number of reviews", "review rate number", "calculated host listings count",
-                  "availability 365"]].corr(), ax=ax, vmin=-1, vmax=0, cmap='Reds')
-st.write(fig)
-
 # Boxplot van prijzen per borough
 Boxplot = px.box(data_frame=data, x='neighbourhood group', y='price')
 st.markdown('**Barplot**')
+st.markdown("De gemiddelde prijs van de neighbourhood groepen")
 st.plotly_chart(Boxplot)
 
 # Histogram van gemiddelde prijs per neighbourhood group (beter leesbaar)
@@ -75,6 +62,42 @@ st.markdown(
     " Dit heeft ermee te maken dat er verschillende service fees zijn.")
 st.plotly_chart(Figscatter)
 
+####Correlation distance tot "centrum" (The Battery als centre point)
+regressie = px.scatter(data, x="dist",
+                       y="price",
+                       title='Regression distance to centrum/prijs',
+                       trendline='ols',
+                       trendline_color_override='red')
+a = px.get_trendline_results(regressie).px_fit_results.iloc[0].rsquared
+st.write('R squared: ', a)
+st.plotly_chart(regressie)
+
+#
+
+
+##Corr
+fig, ax = plt.subplots()
+sns.heatmap(data[['host_identity_verified', 'neighbourhood group', 'neighbourhood', 'instant_bookable',
+                  "cancellation_policy", "room type", "Construction year", "price", "minimum nights",
+                  "number of reviews", "review rate number", "calculated host listings count",
+                  "availability 365"]].corr(), ax=ax, vmin=0, vmax=1, cmap='Blues')
+st.write(fig)
+
+fig, ax = plt.subplots()
+sns.heatmap(data[['host_identity_verified', 'neighbourhood group', 'neighbourhood', 'instant_bookable',
+                  "cancellation_policy", "room type", "Construction year", "price", "minimum nights",
+                  "number of reviews", "review rate number", "calculated host listings count",
+                  "availability 365"]].corr(), ax=ax, vmin=-1, vmax=0, cmap='Reds')
+st.write(fig)
+
+# scatterplot van percentage service fee tegenover prijs, hierin is te zien dat er 5 verschillende 'categorien' zijn om uit te kiezen
+Figscatter = px.scatter(data, x="serv_fee_perc", y="price", color='neighbourhood',
+                        title='Percentage service fee tegenover prijs')
+st.markdown(
+    "Een scatterplot over de service fee per Neighbourhood, het valt direct op dat duidelijk patroon is de visualisatie Dit heeft"
+    " Dit heeft ermee te maken dat er verschillende service fees zijn.")
+st.plotly_chart(Figscatter)
+
 zoom = st.checkbox('Zoom in')
 x = [0, 1500]
 y = [0, 250]
@@ -86,16 +109,6 @@ if zoom:
 Figscatter2 = px.scatter(data, x="price", y="service fee", color='neighbourhood', title='Service fee tegenover prijs',
                          range_x=x, range_y=y)
 st.plotly_chart(Figscatter2)
-
-####Correlation distance tot "centrum" (The Battery als centre point)
-regressie = px.scatter(data, x="dist",
-                       y="price",
-                       title='Regression distance to centrum/prijs',
-                       trendline='ols',
-                       trendline_color_override='red')
-a = px.get_trendline_results(regressie).px_fit_results.iloc[0].rsquared
-st.write('R squared: ', a)
-st.plotly_chart(regressie)
 
 results = px.get_trendline_results(regressie)
 line_coeff = results.iloc[0]["px_fit_results"].params
