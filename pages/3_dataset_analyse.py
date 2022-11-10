@@ -33,7 +33,8 @@ st.write(avg_df)
 # data['avg_price'] = data['price'].groupby('price').mean()
 fig1 = px.histogram(avg_df, x='neighbourhood group', y="price", color=avg_df.index,
                     title='Prijs per neighbourhood group',
-                    histfunc='avg')
+                    histfunc='avg',
+                    range_y=[500, 700])
 # AttributeError: 'Figure' object has no attribute 'savefig'
 # st.header("**Enkele dataset analyses**")
 # st.markdown("Bijgaand dit hoofdstuk worden verschillende parameters met elkaar vergeleken")
