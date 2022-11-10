@@ -58,7 +58,26 @@ df['serv_fee_perc'] = df['service fee'].values / (df['price'].values + df['servi
 # brookln groep veranderen naar Brooklyn
 df['neighbourhood group'] = df['neighbourhood group'].replace('brookln', 'Brooklyn')
 
-#st.write('"Clean" dataframe: ', df)
+st.code("""
+# drop NaN locations en prices
+df.dropna(subset=['lat', 'long', 'price', 'service fee'], inplace=True)
+
+# price and service fee cleanup
+df['price'] = df['price'].astype(str).str[1:]
+df['service fee'] = df['service fee'].astype(str).str[1:]
+df['price'] = df['price'].apply(lambda row: row.replace(',', ''))
+df['service fee'] = df['service fee'].apply(lambda row: row.replace(',', ''))
+
+df = df.astype({"price": "int", "service fee": "int"})
+
+# nieuwe kolom met service fee percentage = service fee / price + service fee
+df['serv_fee_perc'] = df['service fee'].values / (df['price'].values + df['service fee'].values)
+
+# brookln groep veranderen naar Brooklyn
+df['neighbourhood group'] = df['neighbourhood group'].replace('brookln', 'Brooklyn')
+""", language='python')
+
+# st.write('"Clean" dataframe: ', df)
 
 # geopandas dataframe maken
 gdf = geopandas.GeoDataFrame(
