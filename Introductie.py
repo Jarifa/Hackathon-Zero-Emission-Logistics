@@ -10,15 +10,15 @@ api = KaggleApi()
 api.authenticate()
 
 ###Introtekst
-st.header("**DASHBOARD Dave van der Schouw, Benjamin Niemann **")
-st.markdown()
-st.image()
+st.header("DASHBOARD Dave van der Schouw, Benjamin Niemann")
+st.markdown("Wellkom bij het dashboard over AirBnB data van NewYork.")
+st.image('Kaggle.png')
 
 # importing datasets from API
 api.dataset_download_files('arianazmoudeh/airbnbopendata', unzip=True)
 df_original = pd.read_csv('Airbnb_Open_Data.csv')
 
-st.write('Original "Dirty" dataframe:', df_original)
+# st.write('Original "Dirty" dataframe:', df_original)
 # st.write(df_original)
 df = df_original
 
