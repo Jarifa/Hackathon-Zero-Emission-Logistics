@@ -94,7 +94,7 @@ st_map = folium_static(mb, width=1100, height=800)
 """, language='python')
 
 st.header('Code voor de correlation matrix')
-st.code(""""
+st.code("""
 # Heatmap van 0 tot 1
 fig, ax = plt.subplots()
 sns.heatmap(data[['host_identity_verified', 'neighbourhood group', 'neighbourhood', 'instant_bookable',
