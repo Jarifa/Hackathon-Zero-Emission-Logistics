@@ -22,7 +22,7 @@ gdf = geopandas.GeoDataFrame(
     df, geometry=geopandas.points_from_xy(df.long, df.lat))
 st.write('geodataframe test: ', gdf)
 
-Battery = Point(40.7032047224727, -74.01540840380054)
+Battery = Point(-74.01540840380054, 40.7032047224727)
 st.write('Battery point test: ', Battery)
 
 gdf['dist'] = gdf.distance(Battery)
