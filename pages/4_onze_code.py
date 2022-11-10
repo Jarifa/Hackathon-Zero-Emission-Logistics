@@ -63,4 +63,4 @@ gdf['dist'] = gdf.distance(Battery)""", language='python')
 
 st.header('De opgeschoonde en verbeterde dataframe:')
 st.write('Clean dataframe met dist vanaf Battery (centrum new york): ')
-st.write(gdf[['NAME', 'neighbourhood group', 'price', 'lat', 'long', 'geometry', 'dist']].head(20))
+st.write(data[['NAME', 'neighbourhood group', 'price', 'lat', 'long', 'geometry', 'dist']].head(20))
