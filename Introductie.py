@@ -29,8 +29,8 @@ api.authenticate()
 
 ###Introtekst
 st.title("Eindpresentatie Visual Analystics")
-st.subheader("Door Dave van der Schouw & Benjamin Niemann")
-st.markdown("Dashboard over AirBnB data van NewYork.")
+st.subheader("Dave van der Schouw & Benjamin Niemann")
+st.markdown("AirBnB data van NewYork.")
 st.image('Kaggle.png')
 
 # importing datasets from API
