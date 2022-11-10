@@ -58,6 +58,7 @@ df['serv_fee_perc'] = df['service fee'].values / (df['price'].values + df['servi
 # brookln groep veranderen naar Brooklyn
 df['neighbourhood group'] = df['neighbourhood group'].replace('brookln', 'Brooklyn')
 
+st.header('Opschonen dataframe')
 # Code voor opschonen van dataframe
 st.code("""
 # drop NaN locations en prices
@@ -91,6 +92,7 @@ Battery = Point(-74.01540840380054, 40.7032047224727)
 
 gdf['dist'] = gdf.distance(Battery)
 
+st.header('Van Dataframe naar GeoDataFrame:')
 # code voor geopandas dataframe met dist
 st.code("""
 # maken van geopandas dataframe, maakt automatisch geometry kolom aan met punten
