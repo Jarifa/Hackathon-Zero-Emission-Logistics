@@ -84,3 +84,5 @@ regressie = px.scatter(data[data['availability 365'] <= 365], x="availability 36
                        trendline_color_override='red'
                        )
 st.plotly_chart(regressie)
+results = px.get_trendline_results(regressie)
+st.write(results)
