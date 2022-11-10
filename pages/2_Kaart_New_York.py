@@ -54,8 +54,8 @@ st.write('aantal aanbiedingen in buurt = ', len(neighbourhood))
 st.write('Kaart met aanbiedingen in de buurt')
 marker_cluster = folium.plugins.MarkerCluster(name='Clusters', overlay=False, control=True).add_to(mb)
 for index, row in neighbourhood.iterrows():
-    folium.Marker(location=[row['lat'], row['long']], popup=row['NAME'],
-                  tooltip=('price: ' + str(row['price']))).add_to(marker_cluster)
+    folium.Marker(location=[row['lat'], row['long']], popup=('Description: ' + str(row['NAME']),
+                                                             tooltip=('price: ' + str(row['price']))).add_to(marker_cluster)
 
 # itertuples:
 # folium.Marker([data.long.values[1], data.lat.values[1]], popup=data.NAME.values[1]).add_to(mb)
