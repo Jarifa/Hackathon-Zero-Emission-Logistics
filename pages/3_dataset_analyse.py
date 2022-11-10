@@ -66,4 +66,4 @@ st.markdown("**REGRESSION**")
 st.markdown("Model bouwjaar tegenover de prijs, een bijbehorende correlatie.")
 
 st.plotly_chart(regressie)
-##data = df.to_csv('clean_df.csv')
+data = df.to_csv('clean_df.csv')
