@@ -61,7 +61,7 @@ regressie = px.scatter(data, x="Construction year",
                        y="price",
                        color='neighbourhood group',
                        title='Regression Bouwjaar/prijs',
-                       trendline=True)
+                       trendline='ols')
 st.markdown("**REGRESSION**")
 st.markdown("Model bouwjaar tegenover de prijs, een bijbehorende correlatie.")
 
