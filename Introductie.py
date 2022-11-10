@@ -36,8 +36,7 @@ st.image('Kaggle.png')
 api.dataset_download_files('arianazmoudeh/airbnbopendata', unzip=True)
 df_original = pd.read_csv('Airbnb_Open_Data.csv')
 
-# st.write('Original "Dirty" dataframe:', df_original)
-# st.write(df_original)
+st.write('Original "Dirty" dataframe:', df_original)
 df = df_original
 
 # st.write('names of columns in df: ', list(df))
@@ -71,14 +70,12 @@ Battery = Point(-74.01540840380054, 40.7032047224727)
 
 gdf['dist'] = gdf.distance(Battery)
 
-
-#st.write('dist test: ', gdf)
+st.write('Clean dataframe met dist vanaf Battery (centrum new york): ', gdf)
 
 
 # Achtergrond############################################################################################
 
 ###############################################################################################################
 gdf.to_csv('clean_df.csv')
-# gdf.to_csv('clean_gdf.csv')
 
 
