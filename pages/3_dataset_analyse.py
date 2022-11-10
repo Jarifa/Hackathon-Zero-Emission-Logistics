@@ -31,7 +31,7 @@ st.write(list(data))
 avg_df = data[['neighbourhood group', 'price']].groupby('neighbourhood group').mean().reset_index()
 st.write(avg_df)
 # data['avg_price'] = data['price'].groupby('price').mean()
-fig1 = px.histogram(avg_df, x=avg_df.index, y="price", color=avg_df.index,
+fig1 = px.histogram(avg_df, x='neighbourhood group', y="price", color=avg_df.index,
                     title='Prijs per neighbourhood group',
                     labels={'x': 'neighbourhood group', 'sum of price': 'average price'})
 # AttributeError: 'Figure' object has no attribute 'savefig'
@@ -39,6 +39,8 @@ fig1 = px.histogram(avg_df, x=avg_df.index, y="price", color=avg_df.index,
 # st.markdown("Bijgaand dit hoofdstuk worden verschillende parameters met elkaar vergeleken")
 st.plotly_chart(fig1)
 
+Figscatter = px.scatter(data, x="serv_fee_perc", y="price", color='neighbourhood')
+st.write(Figscatter)
 ####Correlation service fee
 
 
