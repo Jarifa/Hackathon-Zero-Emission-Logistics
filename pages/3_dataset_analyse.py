@@ -57,6 +57,13 @@ Figscatter2 = px.scatter(data, x="price", y="service fee", color='neighbourhood'
 st.plotly_chart(Figscatter2)
 
 ####Correlation service fee
+regressie = px.scatter(data, x="Construction year",
+                       y="price",
+                       color='neighbourhood group',
+                       title='Regression Bouwjaar/prijs',
+                       trendline=True)
+st.markdown("**REGRESSION**")
+st.markdown("Model bouwjaar tegenover de prijs, een bijbehorende correlatie.")
 
-
+st.plotly_chart(regressie)
 ##data = df.to_csv('clean_df.csv')
