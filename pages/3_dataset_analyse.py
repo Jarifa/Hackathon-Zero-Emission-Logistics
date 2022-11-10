@@ -2,10 +2,12 @@
 
 import pandas as pd
 import numpy as np
-import plotly as plt
+import plotly
 import streamlit as st
 import plotly.express as px
 import seaborn as sns
+import matplotlib.pyplot as plt
+
 
 # comment
 ##########Code voor regression
