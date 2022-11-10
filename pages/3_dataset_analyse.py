@@ -66,3 +66,13 @@ st.markdown("**REGRESSION**")
 st.markdown("Model bouwjaar tegenover de prijs, een bijbehorende correlatie.")
 
 st.plotly_chart(regressie)
+
+####Correlation distance tot "centrum" (The Battery als centre point)
+regressie = px.scatter(data, x="dist",
+                       y="price",
+                       color='neighbourhood group',
+                       title='Regression distance to centrum/prijs',
+                       trendline='ols')
+st.markdown("**REGRESSION**")
+
+st.plotly_chart(regressie)
