@@ -75,6 +75,3 @@ gdf.to_csv('clean_df.csv')
 # gdf.to_csv('clean_gdf.csv')
 
 
-###Introtekst
-st.header("**DASHBOARD Dave van der Schouw, Benjamin Niemann **")
-st.image('Kaggle.png')
