@@ -31,7 +31,7 @@ add_bg_from_url()
 
 #######################################################################################################################
 
-st.header("Dataset analyze")
+st.header("Dataset analyse")
 
 # Price tegenover bouwjaar
 data = pd.read_csv('clean_df.csv')
