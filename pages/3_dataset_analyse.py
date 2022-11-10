@@ -5,6 +5,7 @@ import numpy as np
 import plotly as px
 import streamlit as st
 import plotly.express as px
+import seaborn as sns
 #comment
 ##########Code voor regression
 ###################################################################################################################
@@ -24,9 +25,19 @@ def add_bg_from_url():
 
 
 add_bg_from_url()
+
 #######################################################################################################################
+
+
 # Price tegenover bouwjaar
 data = pd.read_csv('clean_df.csv')
+
+##Corr
+fig, ax = plt.subplots()
+corr = data.corr()
+heatmap = sns.heatmap(corr, ax=ax)
+
+st.write(heatmap)
 
 # Boxplot van prijzen per borough
 Boxplot = px.box(data_frame=data, x='neighbourhood group', y='price')
