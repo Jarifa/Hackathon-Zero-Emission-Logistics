@@ -37,7 +37,7 @@ data = pd.read_csv('clean_df.csv')
 
 ##Corr
 fig, ax = plt.subplots()
-sns.heatmap(data.corr(), ax=ax)
+sns.heatmap(data.corr(), ax=ax, vmin=-1, vmax=1, cmap='RdYlBu')
 st.write(fig)
 
 # Boxplot van prijzen per borough
