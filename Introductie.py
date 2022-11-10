@@ -2,6 +2,7 @@
 import numpy as np
 import pandas as pd
 import geopandas
+from shapely.geometry import Point
 import streamlit as st
 from kaggle.api.kaggle_api_extended import KaggleApi
 
@@ -21,7 +22,7 @@ gdf = geopandas.GeoDataFrame(
     df, geometry=geopandas.points_from_xy(df.long, df.lat))
 st.write('geodataframe test: ', gdf)
 
-Battery = geopandas.points_from_xy(40.7032047224727, -74.01540840380054)
+Battery = Point(40.7032047224727, -74.01540840380054)
 st.write('Battery point test: ', Battery)
 
 st.write('names of columns in df: ', list(df))
