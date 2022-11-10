@@ -77,7 +77,7 @@ st.plotly_chart(regressie)
 
 # st.plotly_chart(regressie)
 regressie = px.scatter(data[data['number of reviews'] > 19], x="review rate number",
-                       y="price",
+                       y="dist",
                        color="number of reviews",
                        title='Regression number of reviews/prijs',
                        trendline='ols')
