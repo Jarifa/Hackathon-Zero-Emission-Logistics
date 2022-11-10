@@ -62,4 +62,4 @@ for index, row in neighbourhood.iterrows():
 # apply:
 # data.apply(lambda row: folium.marker([row['long'], row['lat']], popup=row['NAME']).add_to(mb))
 
-st_map = folium_static(mb, width='100%')
+st_map = folium_static(mb, width=1000)
