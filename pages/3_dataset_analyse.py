@@ -83,6 +83,8 @@ regressie = px.scatter(data, x="dist",
                        title='Regression distance to centrum/prijs',
                        trendline='ols',
                        trendline_color_override='red')
+st.head("regression")
+st.write("Regressie prijs ten aanziende van downtown New York")
 st.plotly_chart(regressie)
 
 results = px.get_trendline_results(regressie)
@@ -92,25 +94,7 @@ st.write('lijn: ', line_coeff[1], 'x + ', line_coeff[0])
 a = px.get_trendline_results(regressie).px_fit_results.iloc[0].rsquared
 st.write('R squared: ', a)
 
-#
-
-
-##Corr
-fig, ax = plt.subplots()
-sns.heatmap(data[['host_identity_verified', 'neighbourhood group', 'neighbourhood', 'instant_bookable',
-                  "cancellation_policy", "room type", "Construction year", "price", "minimum nights",
-                  "number of reviews", "review rate number", "calculated host listings count",
-                  "availability 365"]].corr(), ax=ax, vmin=0, vmax=1, cmap='Blues')
-st.write(fig)
-
-fig, ax = plt.subplots()
-sns.heatmap(data[['host_identity_verified', 'neighbourhood group', 'neighbourhood', 'instant_bookable',
-                  "cancellation_policy", "room type", "Construction year", "price", "minimum nights",
-                  "number of reviews", "review rate number", "calculated host listings count",
-                  "availability 365"]].corr(), ax=ax, vmin=-1, vmax=0, cmap='Reds')
-st.write(fig)
-
-
+###Correlation Bouwjaar
 # st.plotly_chart(regressie)
 regressie = px.scatter(data, x="Construction year",
                        y="price",
@@ -127,3 +111,20 @@ st.write('R squared: ', a)
 results = px.get_trendline_results(regressie)
 line_coeff = results.iloc[0]["px_fit_results"].params
 st.write('lijn: ', line_coeff[1], 'x + ', line_coeff[0])
+#
+
+
+##Heatmap
+fig, ax = plt.subplots()
+sns.heatmap(data[['host_identity_verified', 'neighbourhood group', 'neighbourhood', 'instant_bookable',
+                  "cancellation_policy", "room type", "Construction year", "price", "minimum nights",
+                  "number of reviews", "review rate number", "calculated host listings count",
+                  "availability 365"]].corr(), ax=ax, vmin=0, vmax=1, cmap='Blues')
+st.write(fig)
+
+fig, ax = plt.subplots()
+sns.heatmap(data[['host_identity_verified', 'neighbourhood group', 'neighbourhood', 'instant_bookable',
+                  "cancellation_policy", "room type", "Construction year", "price", "minimum nights",
+                  "number of reviews", "review rate number", "calculated host listings count",
+                  "availability 365"]].corr(), ax=ax, vmin=-1, vmax=0, cmap='Reds')
+st.write(fig)
