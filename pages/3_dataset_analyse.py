@@ -84,5 +84,10 @@ regressie = px.scatter(data[data['availability 365'] <= 365], x="availability 36
                        trendline_color_override='red'
                        )
 st.plotly_chart(regressie)
-results = px.get_trendline_results(regressie).summary()
+
+results = px.get_trendline_results(regressie)
+results = results.iloc[0]["px_fit_results"].summary()
 st.write(results)
+
+line_coeff = results.iloc[0]["px_fit_results"].params
+st.write('lijn: ', line_coeff[1], 'x + ', line_coeff[0])
