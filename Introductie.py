@@ -9,6 +9,11 @@ from kaggle.api.kaggle_api_extended import KaggleApi
 api = KaggleApi()
 api.authenticate()
 
+###Introtekst
+st.header("**DASHBOARD Dave van der Schouw, Benjamin Niemann **")
+st.markdown()
+st.image()
+
 # importing datasets from API
 api.dataset_download_files('arianazmoudeh/airbnbopendata', unzip=True)
 df_original = pd.read_csv('Airbnb_Open_Data.csv')
