@@ -91,6 +91,18 @@ Battery = Point(-74.01540840380054, 40.7032047224727)
 
 gdf['dist'] = gdf.distance(Battery)
 
+# code voor geopandas dataframe met dist
+st.code("""
+geopandas dataframe maken
+gdf = geopandas.GeoDataFrame(
+    df, geometry=geopandas.points_from_xy(df.long, df.lat))
+# st.write('geodataframe test: ', gdf)
+
+Battery = Point(-74.01540840380054, 40.7032047224727)
+# st.write('Battery point test: ', Battery)
+
+gdf['dist'] = gdf.distance(Battery)""", language='python')
+
 st.write('Clean dataframe met dist vanaf Battery (centrum new york): ')
 st.write(gdf[['NAME', 'neighbourhood group', 'price', 'lat', 'long', 'geometry', 'dist']].head(20))
 
