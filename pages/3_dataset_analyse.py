@@ -68,9 +68,9 @@ regressie = px.scatter(data, x="dist",
                        title='Regression distance to centrum/prijs',
                        trendline='ols',
                        trendline_color_override='red')
+st.plotly_chart(regressie)
 a = px.get_trendline_results(regressie).px_fit_results.iloc[0].rsquared
 st.write('R squared: ', a)
-st.plotly_chart(regressie)
 
 #
 
