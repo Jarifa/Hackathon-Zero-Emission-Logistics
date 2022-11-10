@@ -37,7 +37,10 @@ data = pd.read_csv('clean_df.csv')
 
 ##Corr
 fig, ax = plt.subplots()
-sns.heatmap(data.corr(), ax=ax, vmin=-1, vmax=1, cmap='RdYlBu')
+sns.heatmap(data[['host_identity_verified', 'neighbourhood group', 'neighbourhood', 'instant_bookable',
+                  "cancellation_policy", "room type", "Construction year", "price", "minimum nights",
+                  "number of reviews", "review rate number", "calculated host listings count",
+                  "availability 365"]].corr(), ax=ax, vmin=-1, vmax=1, cmap='RdYlBu')
 st.write(fig)
 
 # Boxplot van prijzen per borough
