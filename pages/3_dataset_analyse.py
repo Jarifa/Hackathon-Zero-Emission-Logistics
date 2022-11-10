@@ -76,8 +76,8 @@ st.plotly_chart(regressie)
 # st.markdown("**REGRESSION**")
 
 # st.plotly_chart(regressie)
-regressie = px.scatter(data), x = "cancellation_policy",
-y = "price",
-title = 'Regression',
-trendline = 'ols')
+regressie = px.scatter(data, x="cancellation_policy",
+                       y="price",
+                       title='Regression',
+                       trendline='ols')
 st.plotly_chart(regressie)
