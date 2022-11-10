@@ -75,7 +75,16 @@ st.markdown(
     " Dit heeft ermee te maken dat er verschillende service fees zijn.")
 st.plotly_chart(Figscatter)
 
-Figscatter2 = px.scatter(data, x="price", y="service fee", color='neighbourhood', title='Service fee tegenover prijs')
+zoom = st.checkbox('Zoom in')
+x = [0, 1500]
+y = [0, 250]
+if zoom:
+    x = [600, 650]
+    y = [121, 129]
+
+# nu prijs tegenover service fee, lijkt een rechte lijn maar na inzoomen kan je zien dat de service fee afgerond is. dit verklaart de vorm van de plot ervoor
+Figscatter2 = px.scatter(data, x="price", y="service fee", color='neighbourhood', title='Service fee tegenover prijs',
+                         range_x=x, range_y=y)
 st.plotly_chart(Figscatter2)
 
 ####Correlation distance tot "centrum" (The Battery als centre point)
