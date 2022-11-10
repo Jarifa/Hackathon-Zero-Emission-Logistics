@@ -71,7 +71,7 @@ Battery = Point(-74.01540840380054, 40.7032047224727)
 gdf['dist'] = gdf.distance(Battery)
 
 st.write('Clean dataframe met dist vanaf Battery (centrum new york): ')
-st.write(gdf[['NAME', 'lat', 'long', 'geometry', 'dist']].head(5))
+st.write(gdf[['NAME', 'neighbourhood group', 'price', 'lat', 'long', 'geometry', 'dist']].head(20))
 
 # Achtergrond############################################################################################
 
