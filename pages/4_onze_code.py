@@ -35,6 +35,7 @@ api.authenticate()
 # importing datasets from API
 api.dataset_download_files('arianazmoudeh/airbnbopendata', unzip=True)
 
+#DataFrame inlezen
 df_original = pd.read_csv('Airbnb_Open_Data.csv')""", language='python'
 )
 st.write('environment variables inladen: ')
