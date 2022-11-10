@@ -17,17 +17,6 @@ st.write('Original "Dirty" dataframe:')
 st.write(df_original)
 df = df_original
 
-# geopandas dataframe maken
-gdf = geopandas.GeoDataFrame(
-    df, geometry=geopandas.points_from_xy(df.long, df.lat))
-st.write('geodataframe test: ', gdf)
-
-Battery = Point(-74.01540840380054, 40.7032047224727)
-st.write('Battery point test: ', Battery)
-
-gdf['dist'] = gdf.distance(Battery)
-st.write('dist test: ', gdf)
-
 st.write('names of columns in df: ', list(df))
 
 # drop NaN locations en prices
@@ -49,6 +38,17 @@ df['neighbourhood group'] = df['neighbourhood group'].replace('brookln', 'Brookl
 
 st.write('"Clean" dataframe: ', df)
 
+# geopandas dataframe maken
+gdf = geopandas.GeoDataFrame(
+    df, geometry=geopandas.points_from_xy(df.long, df.lat))
+st.write('geodataframe test: ', gdf)
+
+Battery = Point(-74.01540840380054, 40.7032047224727)
+st.write('Battery point test: ', Battery)
+
+gdf['dist'] = gdf.distance(Battery)
+st.write('dist test: ', gdf)
+
 
 # Achtergrond############################################################################################
 def add_bg_from_url():
@@ -65,3 +65,4 @@ def add_bg_from_url():
 add_bg_from_url()
 ###############################################################################################################
 df.to_csv('clean_df.csv')
+gdf.to_csv('clean_gdf.csv')
