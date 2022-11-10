@@ -58,6 +58,7 @@ df['serv_fee_perc'] = df['service fee'].values / (df['price'].values + df['servi
 # brookln groep veranderen naar Brooklyn
 df['neighbourhood group'] = df['neighbourhood group'].replace('brookln', 'Brooklyn')
 
+# Code voor opschonen van dataframe
 st.code("""
 # drop NaN locations en prices
 df.dropna(subset=['lat', 'long', 'price', 'service fee'], inplace=True)
