@@ -1,3 +1,4 @@
+import pandas as pd
 import streamlit as st
 
 
@@ -17,8 +18,13 @@ def add_bg_from_url():
 
 
 add_bg_from_url()
+df_original = pd.read_csv('original.csv')
+data = pd.read_csv('clean_df.csv')
 
-st.title('Onze code:')
+st.title('Onze code en data:')
+
+st.header('De originele dataframe:')
+st.write('Original "Dirty" dataframe:', df_original.head(20))
 
 st.header('Opschonen dataframe')
 # Code voor opschonen van dataframe
@@ -54,3 +60,7 @@ Battery = Point(-74.01540840380054, 40.7032047224727)
 
 # afstand berekenen tot punt voor elke row in dataframe en in nieuwe kolom 'dist' plaatsen
 gdf['dist'] = gdf.distance(Battery)""", language='python')
+
+st.header('De opgeschoonde en verbeterde dataframe:')
+st.write('Clean dataframe met dist vanaf Battery (centrum new york): ')
+st.write(gdf[['NAME', 'neighbourhood group', 'price', 'lat', 'long', 'geometry', 'dist']].head(20))
