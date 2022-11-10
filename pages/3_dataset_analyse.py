@@ -103,6 +103,9 @@ regressie = px.scatter(data, x="Construction year",
                        opacity=0.05,
                        trendline_color_override='red'
                        )
+st.header("Regression")
+st.write(
+    "Regression lijn ten aanzien van het bouwjaar, hier gekeken naar of het bouwjaar invloed heeft gehad op de prijs van een woning")
 st.plotly_chart(regressie)
 
 a = px.get_trendline_results(regressie).px_fit_results.iloc[0].rsquared
