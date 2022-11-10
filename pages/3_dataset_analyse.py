@@ -79,5 +79,6 @@ st.plotly_chart(regressie)
 regressie = px.scatter(data[data['availability 365'] <= 365], x="availability 365",
                        y="price",
                        title='Regression',
-                       trendline='ols')
+                       trendline='ols',
+                       opacity=0.2)
 st.plotly_chart(regressie)
