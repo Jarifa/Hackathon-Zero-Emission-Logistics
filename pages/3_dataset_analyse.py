@@ -42,7 +42,7 @@ st.markdown('Een visualisatie over de gemiddelde prijs van de stadsdelen van New
             'de gemiddelde prijs van de stadsdelen vrijwel gelijk zijn')
 st.plotly_chart(fig1)
 
-Figscatter = px.scatter(data, x="serv_fee_perc", y="price", color='neighbourhood')
+Figscatter = px.scatter(data, x="serv_fee_perc", y="price", color='neighbourhood', title='Service fee tegenover prijs')
 st.markdown(
     "Een scatterplot over de service fee per Neighbourhood, het valt direct op dat duidelijk patroon is de visualisatie Dit heeft"
     " Dit heeft ermee te maken dat er verschillende service fees zijn.")
