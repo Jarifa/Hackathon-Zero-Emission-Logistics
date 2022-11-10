@@ -83,7 +83,7 @@ regressie = px.scatter(data, x="dist",
                        title='Regression distance to centrum/prijs',
                        trendline='ols',
                        trendline_color_override='red')
-st.head("regression")
+st.header("regression")
 st.write("Regressie prijs ten aanziende van downtown New York")
 st.plotly_chart(regressie)
 
