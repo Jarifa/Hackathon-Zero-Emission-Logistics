@@ -71,4 +71,4 @@ gdf.to_csv('clean_df.csv')
 
 
 ###Introtekst
-St.header("**DASHBOARD Dave van der Schouw, Benjamin Niemann **")
+st.header("**DASHBOARD Dave van der Schouw, Benjamin Niemann **")
