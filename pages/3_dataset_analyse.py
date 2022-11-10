@@ -37,8 +37,7 @@ fig1 = px.histogram(avg_df, x='neighbourhood group', y="price", color=avg_df.ind
 # AttributeError: 'Figure' object has no attribute 'savefig'
 # st.header("**Enkele dataset analyses**")
 # st.markdown("Bijgaand dit hoofdstuk worden verschillende parameters met elkaar vergeleken")
-st.markdown(Een
-vis)
+st.markdown('Een vis')
 st.plotly_chart(fig1)
 
 Figscatter = px.scatter(data, x="serv_fee_perc", y="price", color='neighbourhood')
