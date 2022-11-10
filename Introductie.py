@@ -25,6 +25,9 @@ st.write('geodataframe test: ', gdf)
 Battery = Point(40.7032047224727, -74.01540840380054)
 st.write('Battery point test: ', Battery)
 
+gdf['dist'] = gdf.distance(Battery)
+st.write('dist test: ', gdf)
+
 st.write('names of columns in df: ', list(df))
 
 # drop NaN locations en prices
