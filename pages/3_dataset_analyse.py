@@ -78,27 +78,22 @@ st.plotly_chart(Figscatter)
 Figscatter2 = px.scatter(data, x="price", y="service fee", color='neighbourhood', title='Service fee tegenover prijs')
 st.plotly_chart(Figscatter2)
 
-####Correlation service fee
-regressie = px.scatter(data, x="Construction year",
-                       y="price",
-                       color='neighbourhood group',
-                       title='Regression Bouwjaar/prijs',
-                       trendline='ols')
-st.markdown("**REGRESSION**")
-st.markdown("Model bouwjaar tegenover de prijs, een bijbehorende correlatie.")
-
-st.plotly_chart(regressie)
-
 ####Correlation distance tot "centrum" (The Battery als centre point)
-"""regressie = px.scatter(data, x="dist",
+regressie = px.scatter(data, x="dist",
                        y="price",
                        color='neighbourhood group',
                        title='Regression distance to centrum/prijs',
-                       trendline='ols')"""
-# st.markdown("**REGRESSION**")
+                       trendline='ols')
+a = px.get_trendline_results(regressie).px_fit_results.iloc[0].rsquared
+st.write('R squared: ', a)
+st.plotly_chart(regressie)
+
+results = px.get_trendline_results(regressie)
+line_coeff = results.iloc[0]["px_fit_results"].params
+st.write('lijn: ', line_coeff[1], 'x + ', line_coeff[0])
 
 # st.plotly_chart(regressie)
-regressie = px.scatter(data[(data['minimum nights'] > 0) & (data['minimum nights'] <= 365)], x="minimum nights",
+regressie = px.scatter(data, x="Construction year",
                        y="price",
                        title='Regression',
                        trendline='ols',
