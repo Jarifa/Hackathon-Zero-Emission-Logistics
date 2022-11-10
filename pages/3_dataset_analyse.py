@@ -81,3 +81,4 @@ regressie = px.scatter(data[data['number of reviews'] > 19], x="review rate numb
                        color="number of reviews",
                        title='Regression number of reviews/prijs',
                        trendline='ols')
+st.plotly_chart(regressie)
