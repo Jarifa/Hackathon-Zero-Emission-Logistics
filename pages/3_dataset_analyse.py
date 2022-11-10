@@ -77,10 +77,6 @@ Figscatter2 = px.scatter(data, x="price", y="service fee", color='neighbourhood'
                          range_x=x, range_y=y)
 st.plotly_chart(Figscatter2)
 
-results = px.get_trendline_results(regressie)
-line_coeff = results.iloc[0]["px_fit_results"].params
-st.write('lijn: ', line_coeff[1], 'x + ', line_coeff[0])
-
 ####Correlation distance tot "centrum" (The Battery als centre point)
 regressie = px.scatter(data, x="dist",
                        y="price",
@@ -88,6 +84,11 @@ regressie = px.scatter(data, x="dist",
                        trendline='ols',
                        trendline_color_override='red')
 st.plotly_chart(regressie)
+
+results = px.get_trendline_results(regressie)
+line_coeff = results.iloc[0]["px_fit_results"].params
+
+st.write('lijn: ', line_coeff[1], 'x + ', line_coeff[0])
 a = px.get_trendline_results(regressie).px_fit_results.iloc[0].rsquared
 st.write('R squared: ', a)
 
