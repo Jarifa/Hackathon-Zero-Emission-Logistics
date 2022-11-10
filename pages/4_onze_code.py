@@ -1,12 +1,6 @@
-# importing required libraries and packages
-import numpy as np
-import pandas as pd
-import geopandas
-from shapely.geometry import Point
 import streamlit as st
-from kaggle.api.kaggle_api_extended import KaggleApi
 
-st.set_page_config(layout="wide")
+
 def add_bg_from_url():
     st.markdown(
         f"""
@@ -23,30 +17,19 @@ def add_bg_from_url():
 
 
 add_bg_from_url()
-#######
-api = KaggleApi()
-api.authenticate()
 
-###Introtekst
-st.header("DASHBOARD Dave van der Schouw, Benjamin Niemann")
-st.markdown("Wellkom bij het dashboard over AirBnB data van NewYork.")
-st.image('Kaggle.png')
+st.title('Onze code:')
 
-# importing datasets from API
-api.dataset_download_files('arianazmoudeh/airbnbopendata', unzip=True)
-df_original = pd.read_csv('Airbnb_Open_Data.csv')
-
-st.write('Original "Dirty" dataframe:', df_original.head(20))
-df = df_original
-
-# st.write('names of columns in df: ', list(df))
-
+st.header('Opschonen dataframe')
+# Code voor opschonen van dataframe
+st.code("""
 # drop NaN locations en prices
 df.dropna(subset=['lat', 'long', 'price', 'service fee'], inplace=True)
 
 # price and service fee cleanup
 df['price'] = df['price'].astype(str).str[1:]
 df['service fee'] = df['service fee'].astype(str).str[1:]
+
 df['price'] = df['price'].apply(lambda row: row.replace(',', ''))
 df['service fee'] = df['service fee'].apply(lambda row: row.replace(',', ''))
 
@@ -57,24 +40,17 @@ df['serv_fee_perc'] = df['service fee'].values / (df['price'].values + df['servi
 
 # brookln groep veranderen naar Brooklyn
 df['neighbourhood group'] = df['neighbourhood group'].replace('brookln', 'Brooklyn')
+""", language='python')
 
-
-# st.write('"Clean" dataframe: ', df)
-
-# geopandas dataframe maken
+st.header('Van Dataframe naar GeoDataFrame:')
+# code voor geopandas dataframe met dist
+st.code("""
+# maken van geopandas dataframe, maakt automatisch geometry kolom aan met punten
 gdf = geopandas.GeoDataFrame(
     df, geometry=geopandas.points_from_xy(df.long, df.lat))
-# st.write('geodataframe test: ', gdf)
 
+# Punt aanmaken die Battery aangeeft (locatie in centrum new york)
 Battery = Point(-74.01540840380054, 40.7032047224727)
-# st.write('Battery point test: ', Battery)
 
-gdf['dist'] = gdf.distance(Battery)
-
-st.write('Clean dataframe met dist vanaf Battery (centrum new york): ')
-st.write(gdf[['NAME', 'neighbourhood group', 'price', 'lat', 'long', 'geometry', 'dist']].head(20))
-
-# Achtergrond############################################################################################
-
-###############################################################################################################
-gdf.to_csv('clean_df.csv')
+# afstand berekenen tot punt voor elke row in dataframe en in nieuwe kolom 'dist' plaatsen
+gdf['dist'] = gdf.distance(Battery)""", language='python')
