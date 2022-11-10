@@ -85,9 +85,9 @@ regressie = px.scatter(data[data['availability 365'] <= 365], x="availability 36
                        )
 st.plotly_chart(regressie)
 
+a = px.get_trendline_results(regressie).px_fit_results.iloc[0].rsquared
+st.write('R squared: ', a)
+
 results = px.get_trendline_results(regressie)
 line_coeff = results.iloc[0]["px_fit_results"].params
-results = results.iloc[0]["px_fit_results"].summary()
-st.write(results)
-
 st.write('lijn: ', line_coeff[1], 'x + ', line_coeff[0])
