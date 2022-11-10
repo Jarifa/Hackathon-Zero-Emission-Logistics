@@ -21,6 +21,9 @@ gdf = geopandas.GeoDataFrame(
     df, geometry=geopandas.points_from_xy(df.long, df.lat))
 st.write('geodataframe test: ', gdf)
 
+Battery = geopandas.points_from_xy(40.7032047224727, -74.01540840380054)
+st.write('Battery point test: ', Battery)
+
 st.write('names of columns in df: ', list(df))
 
 # drop NaN locations en prices
