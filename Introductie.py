@@ -6,7 +6,7 @@ from shapely.geometry import Point
 import streamlit as st
 from kaggle.api.kaggle_api_extended import KaggleApi
 
-
+st.set_page_config(layout="wide")
 def add_bg_from_url():
     st.markdown(
         f"""
