@@ -110,14 +110,6 @@ sns.heatmap(data[['host_identity_verified', 'neighbourhood group', 'neighbourhoo
                   "availability 365"]].corr(), ax=ax, vmin=-1, vmax=0, cmap='Reds')
 st.write(fig)
 
-# scatterplot van percentage service fee tegenover prijs, hierin is te zien dat er 5 verschillende 'categorien' zijn om uit te kiezen
-Figscatter = px.scatter(data, x="serv_fee_perc", y="price", color='neighbourhood',
-                        title='Percentage service fee tegenover prijs')
-st.markdown(
-    "Een scatterplot over de service fee per Neighbourhood, het valt direct op dat duidelijk patroon is de visualisatie Dit heeft"
-    " Dit heeft ermee te maken dat er verschillende service fees zijn.")
-st.plotly_chart(Figscatter)
-
 
 # st.plotly_chart(regressie)
 regressie = px.scatter(data, x="Construction year",
