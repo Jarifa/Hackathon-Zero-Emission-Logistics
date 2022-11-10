@@ -28,8 +28,8 @@ api = KaggleApi()
 api.authenticate()
 
 ###Introtekst
-st.header("DASHBOARD Dave van der Schouw, Benjamin Niemann")
-st.markdown("Welkom bij het dashboard over AirBnB data van NewYork.")
+st.title("DASHBOARD Dave van der Schouw, Benjamin Niemann")
+st.header("Welkom bij het dashboard over AirBnB data van NewYork.")
 st.image('Kaggle.png')
 
 # importing datasets from API
