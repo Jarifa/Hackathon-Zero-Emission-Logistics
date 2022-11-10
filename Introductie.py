@@ -1,6 +1,7 @@
 # importing required libraries and packages
 import numpy as np
 import pandas as pd
+import geopandas
 import streamlit as st
 from kaggle.api.kaggle_api_extended import KaggleApi
 
@@ -14,6 +15,11 @@ df_original = pd.read_csv('Airbnb_Open_Data.csv')
 st.write('Original "Dirty" dataframe:')
 st.write(df_original)
 df = df_original
+
+# geopandas dataframe maken
+gdf = geopandas.GeoDataFrame(
+    df, geometry=geopandas.points_from_xy(df.long, df.lat))
+st.write('geodataframe test: ', gdf)
 
 st.write('names of columns in df: ', list(df))
 
