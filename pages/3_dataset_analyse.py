@@ -28,7 +28,7 @@ add_bg_from_url()
 ##Price tegenover bouwjaar
 data = pd.read_csv('clean_df.csv')
 st.write(list(data))
-data['avg_price'] = data.groupby('price').mean()
+data['avg_price'] = data['price'].groupby('price').mean()
 fig1 = px.line(data, x="Construction year", y="avg_price", color="neighbourhood group",
                title='Prijs per neighbourhood group in relatie tot bouwjaar')
 # AttributeError: 'Figure' object has no attribute 'savefig'
