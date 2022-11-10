@@ -37,10 +37,8 @@ data = pd.read_csv('clean_df.csv')
 
 ##Corr
 fig, ax = plt.subplots()
-corr = data.corr()
-heatmap = sns.heatmap(corr, ax=ax)
-
-st.write(heatmap)
+sns.heatmap(data.corr(), ax=ax)
+st.write(fig)
 
 # Boxplot van prijzen per borough
 Boxplot = px.box(data_frame=data, x='neighbourhood group', y='price')
