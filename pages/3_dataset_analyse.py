@@ -49,7 +49,7 @@ fig1 = px.histogram(avg_df, x='neighbourhood group', y="price", color=avg_df.ind
                     title='Prijs per neighbourhood group',
                     histfunc='avg',
                     range_y=[600, 650])
-
+st.header("Histogram")
 st.markdown('Een visualisatie over de gemiddelde prijs van de stadsdelen van New York. Interessant hieraan is dat'
             'de gemiddelde prijs van de stadsdelen vrijwel gelijk zijn')
 st.plotly_chart(fig1)
@@ -57,6 +57,7 @@ st.plotly_chart(fig1)
 # scatterplot van percentage service fee tegenover prijs, hierin is te zien dat er 5 verschillende 'categorien' zijn om uit te kiezen
 Figscatter = px.scatter(data, x="serv_fee_perc", y="price", color='neighbourhood',
                         title='Percentage service fee tegenover prijs')
+st.header("Scatterplot")
 st.markdown(
     "Een scatterplot over de service fee per Neighbourhood, het valt direct op dat duidelijk patroon is de visualisatie Dit heeft"
     " Dit heeft ermee te maken dat er verschillende service fees zijn.")
