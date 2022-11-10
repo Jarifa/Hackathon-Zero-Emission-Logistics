@@ -117,13 +117,6 @@ st.markdown(
     " Dit heeft ermee te maken dat er verschillende service fees zijn.")
 st.plotly_chart(Figscatter)
 
-zoom = st.checkbox('Zoom in')
-x = [0, 1500]
-y = [0, 250]
-if zoom:
-    x = [600, 650]
-    y = [121, 129]
-
 
 # st.plotly_chart(regressie)
 regressie = px.scatter(data, x="Construction year",
