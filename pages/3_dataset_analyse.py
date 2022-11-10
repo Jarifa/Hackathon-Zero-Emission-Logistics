@@ -25,32 +25,37 @@ def add_bg_from_url():
 
 add_bg_from_url()
 #######################################################################################################################
-##Price tegenover bouwjaar
+# Price tegenover bouwjaar
 data = pd.read_csv('clean_df.csv')
-st.write(list(data))
+
+# Boxplot van prijzen per borough
+Boxplot = px.box(data_frame=data, x='neighbourhood group', y='price')
+st.markdown('**Barplot**')
+st.plotly_chart(Boxplot)
+
+# Histogram van gemiddelde prijs per neighbourhood group (beter leesbaar)
 avg_df = data[['neighbourhood group', 'price']].groupby('neighbourhood group').mean().reset_index()
 st.write(avg_df)
-# data['avg_price'] = data['price'].groupby('price').mean()
 fig1 = px.histogram(avg_df, x='neighbourhood group', y="price", color=avg_df.index,
                     title='Prijs per neighbourhood group',
                     histfunc='avg',
                     range_y=[600, 650])
-# AttributeError: 'Figure' object has no attribute 'savefig'
-# st.header("**Enkele dataset analyses**")
-# st.markdown("Bijgaand dit hoofdstuk worden verschillende parameters met elkaar vergeleken")
+
 st.markdown('Een visualisatie over de gemiddelde prijs van de stadsdelen van New York. Interessant hieraan is dat'
             'de gemiddelde prijs van de stadsdelen vrijwel gelijk zijn')
 st.plotly_chart(fig1)
 
-Figscatter = px.scatter(data, x="serv_fee_perc", y="price", color='neighbourhood', title='Service fee tegenover prijs')
+# scatterplot van percentage service fee tegenover prijs, hierin is te zien dat er 5 verschillende 'categorien' zijn om uit te kiezen
+Figscatter = px.scatter(data, x="serv_fee_perc", y="price", color='neighbourhood',
+                        title='Percentage service fee tegenover prijs')
 st.markdown(
     "Een scatterplot over de service fee per Neighbourhood, het valt direct op dat duidelijk patroon is de visualisatie Dit heeft"
     " Dit heeft ermee te maken dat er verschillende service fees zijn.")
 st.plotly_chart(Figscatter)
 
-Boxplot = px.box(data_frame=data, x='neighbourhood group', y='price')
-st.markdown('**Barplot**')
-st.plotly_chart(Boxplot)
+Figscatter2 = px.scatter(data, x="price", y="service fee", color='neighbourhood', title='Service fee tegenover prijs')
+st.plotly_chart(Figscatter2)
+
 ####Correlation service fee
 
 
