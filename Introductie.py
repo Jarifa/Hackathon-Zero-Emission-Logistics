@@ -24,6 +24,8 @@ def add_bg_from_url():
 
 add_bg_from_url()
 #######
+
+# initiate and authenticate API
 api = KaggleApi()
 api.authenticate()
 
@@ -35,7 +37,9 @@ st.image('Kaggle.png')
 
 # importing datasets from API
 api.dataset_download_files('arianazmoudeh/airbnbopendata', unzip=True)
+
 df_original = pd.read_csv('Airbnb_Open_Data.csv')
+df_original.to_csv('original.csv')
 
 df = df_original
 
@@ -74,4 +78,3 @@ gdf['dist'] = gdf.distance(Battery)
 
 ###############################################################################################################
 gdf.to_csv('clean_df.csv')
-df_original.to_csv('original.csv')

@@ -23,6 +23,30 @@ data = pd.read_csv('clean_df.csv')
 
 st.title('Onze code en data:')
 
+st.header('Environment variables')
+st.image('environment_variables.png')
+st.code("""
+KAGGLE_USERNAME = <username>
+KAGGLE_KEY = <key>
+""")
+
+st.header('API')
+st.write('De Kaggle API en environment variables')
+st.code(
+"""from kaggle.api.kaggle_api_extended import KaggleApi
+
+# initiate and authenticate API
+api = KaggleApi()
+api.authenticate()
+
+# importing datasets from API
+api.dataset_download_files('arianazmoudeh/airbnbopendata', unzip=True)
+
+#DataFrame inlezen
+df_original = pd.read_csv('Airbnb_Open_Data.csv')""", language='python'
+)
+
+
 st.header('De originele dataframe:')
 st.write('Original "Dirty" dataframe:', df_original.head(20))
 
