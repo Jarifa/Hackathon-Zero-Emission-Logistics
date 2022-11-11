@@ -59,8 +59,7 @@ Figscatter = px.scatter(data, x="serv_fee_perc", y="price", color='neighbourhood
                         title='Percentage service fee tegenover prijs')
 st.header("Scatterplot")
 st.markdown(
-    "Een scatterplot over de service fee per Neighbourhood, het valt direct op dat duidelijk patroon is de visualisatie Dit heeft"
-    " Dit heeft ermee te maken dat er verschillende service fees zijn.")
+    "Een scatterplot over de service fee per Neighbourhood, het valt direct op dat duidelijk patroon is de visualisatie, maar waarom?.")
 st.plotly_chart(Figscatter)
 
 # Zoom box voor scatterplot
