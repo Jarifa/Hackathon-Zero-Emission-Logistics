@@ -57,7 +57,7 @@ st.plotly_chart(fig1)
 # scatterplot van percentage service fee tegenover prijs, hierin is te zien dat er 5 verschillende 'categorien' zijn om uit te kiezen
 Figscatter = px.scatter(data, x="serv_fee_perc", y="price", color='neighbourhood',
                         title='Percentage service fee tegenover prijs')
-st.header("Scatterplot")
+st.header("Percentage service fee over de totaalprijs")
 st.markdown(
     "Een scatterplot over de service fee per Neighbourhood, het valt direct op dat duidelijk patroon is de visualisatie, maar waarom?.")
 st.plotly_chart(Figscatter)
