@@ -131,5 +131,5 @@ fig, ax = plt.subplots()
 sns.heatmap(data[['host_identity_verified', 'neighbourhood group', 'neighbourhood', 'instant_bookable',
                   "cancellation_policy", "room type", "Construction year", "price", "minimum nights",
                   "number of reviews", "review rate number", "calculated host listings count",
-                  "availability 365"]].corr(), ax=ax, vmin=-1, vmax=0, cmap='Reds')
+                  "availability 365"]].corr(), ax=ax, vmin=-1, vmax=0, cmap='Reds_r')
 st.write(fig)
